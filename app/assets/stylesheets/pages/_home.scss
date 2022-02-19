@@ -4,5 +4,33 @@ body {
 }
 
 #banner {
-  background-color: #790D0D;
+  background-color: white;
+}
+
+.cntr {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+#info {
+  background-color: #ffbcd9;
+}
+
+.rounded-img {
+  border-radius: 50%;
+}
+
+.info-board{
+  font-size: 16px;
+}
+
+.board-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-clean{
+  max-width: 700px;
+  margin: auto;
 }
