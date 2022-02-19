@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -20,6 +21,7 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
+import { loadDynamicBannerText } from '../componets/banner';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -27,4 +29,5 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  loadDynamicBannerText();
 });
