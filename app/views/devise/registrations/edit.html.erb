@@ -1,4 +1,4 @@
-<div class="container width:100%">
+<div class="container">
 
   <div class="carousel banner">
     <% if @user.photos.present? %>
@@ -42,24 +42,9 @@
     </div>
   </div>
   <div class="form-row">
-    <div class="col-6 cat-info-form" data-controller="edit-cat">
+    <%= render 'cat_info_form' %>
+    <%= render 'owner_info_form' %>
 
-      <%= form_for @user, html: { data: { edit_cat_target: 'form' } } do |f| %>
-        <p data-action="click->edit-cat#displayNameField"><b>Name: <%= f.text_field :name, 'data-edit-cat-target': 'name', class: 'd-none' %></b></p>
-        <p data-action="click->edit-cat#displayGenderField"><b>Gender: <%= f.text_field :gender, 'data-edit-cat-target': 'gender', class: 'd-none' %></b></p>
-        <p data-action="click->edit-cat#displayBreedField"><b>Breed: <%= f.text_field :breed, 'data-edit-cat-target': 'breed', class: 'd-none' %></b></p>
-        <p data-action="click->edit-cat#displayDescriptionField"><b>Description: <%= f.text_field :description, as: :text, :input_html => { :rows => 10 }, 'data-edit-cat-target': 'description', class: 'd-none' %></b></p>
-      <% end %>
-    </div>
-
-    <div class="col-6">
-      <%= simple_form_for @user, html: { class: 'd-none' } do |f| %>
-        <%= f.input :owner_name %>
-        <%= f.input :owner_description, as: :text, :input_html => { :rows => 10 } %>
-        <%= f.input :photos, as: :file %>
-      <% end %>
-
-    </div>
   </div>
 
 </div>

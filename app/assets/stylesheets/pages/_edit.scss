@@ -5,11 +5,13 @@
 
 #heart {
   margin-top: 32px;
+  margin-left: 16px;
   text-align: center;
   color: $pale-red;
   font-weight: lighter;
   font-size: 48px;
   cursor: pointer;
+  z-index: 8;
 }
 
 .fa-heart {
@@ -21,7 +23,13 @@
   font-size: 72px;
 }
 
+.avatar-container {
+  margin: 0 auto;
+  width: fit-content;
+}
+
 .avatar {
+  z-index: 7;
   height: 160px;
   width: 160px;
   border-radius: 50%;
@@ -47,6 +55,10 @@
 
 .avatar-container {
   margin-top: -72px;
+}
+
+.not-focused {
+  border: none;
 }
 
 %animation-default {
