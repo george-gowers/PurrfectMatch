@@ -1,28 +1,31 @@
-<div class="container">
-
-  <div class="carousel banner">
-    <% if @user.photos.present? %>
-      <% @user.photo.key.each_with_index do |photo, index| %>
-      <input type="radio" id="carousel-<%= index + 1 %>" name="carousel[]" <%= index == 0? "checked" : "" %>>
-
-      <ul class="carousel__items">
-        <li class="carousel_item"><% cl_image_tag user.photo.key %></li>
-      </ul>
-      <div class="carousel__prev">
-        <label for="carousel-<%= index + 1 %>"></label>
+<div>
+  <% if @user.photos.present? %>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <% @user.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= index ==0? 'active' : "" %>">
+            <%= cl_image_tag photo.key, class: "d-block img-fluid w-100" %>
+            <div class="carousel-caption d-md-block d-none"></div>
+          </div>
+        <% end %>
       </div>
-      <div class="carousel__next">
-        <label for="carousel-<%= index + 1 %>"></label>
-      </div>
-      <div class="carousel__nav">
-        <label for="carousel-<%= index + 1 %>"></label>
-      </div>
-      <% end %>
-    <% else %>
-      <%= image_tag("no-photo.jpg") %>
-    <% end %>
-  </div>
+      <!-- Controls -->
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  <% else %>
+    <%= image_tag("no-photo.jpg", class: "cat-banner") %>
+  <% end %>
+</div>
 
+<div class="container information">
   <div class="d-flex avatar-container">
     <div class="avatar">
       <%= form_for @user do |f| %>
@@ -34,6 +37,7 @@
           <% end %>
         </label>
         <%= f.file_field :avatar, accept: 'image/png,image/jpeg' %>
+        <%= f.submit "Add avatar" %>
     <% end %>
     </div>
 
@@ -42,9 +46,15 @@
     </div>
   </div>
   <div class="form-row">
-    <%= render 'cat_info_form' %>
-    <%= render 'owner_info_form' %>
-
+    <div class="col-6 cat-info-form" data-controller="edit-cat">
+      <%= render 'cat_info_form' %>
+    </div>
+    <div class="col-6 owner-info-form" data-controller="edit-owner">
+      <%= render 'owner_info_form' %>
+      <%= simple_form_for(@user) do |f| %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }, crop: :fill  %>
+        <%= f.submit "Add photos" %>
+      <% end %>
+    </div>
   </div>
-
 </div>
