@@ -1,35 +1,60 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div>
+  <% if @user.photos.present? %>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <% @user.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= index ==0? 'active' : "" %>">
+            <%= cl_image_tag photo.key, class: "d-block img-fluid w-100" %>
+            <div class="carousel-caption d-md-block d-none"></div>
+          </div>
+        <% end %>
+      </div>
+      <!-- Controls -->
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  <% else %>
+    <%= image_tag("no-photo.jpg", class: "cat-banner") %>
+  <% end %>
+</div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+<div class="container information">
+  <div class="d-flex avatar-container">
+    <div class="avatar">
+      <%= form_for @user do |f| %>
+        <label for="user_avatar">
+          <% if @user.avatar.key.present? %>
+            <%= cl_image_tag @user.avatar.key %>
+          <% else %>
+            <i class="fas fa-cat" title="Upload the profile picture"></i>
+          <% end %>
+        </label>
+        <%= f.file_field :avatar, accept: 'image/png,image/jpeg' %>
+        <%= f.submit "Add avatar" %>
     <% end %>
+    </div>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+    <div id="heart">
+      <i class="fas fa-duotone fa-heart"></i>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <div class="form-row">
+    <div class="col-6 cat-info-form" data-controller="edit-cat">
+      <%= render 'cat_info_form' %>
+    </div>
+    <div class="col-6 owner-info-form" data-controller="edit-owner">
+      <%= render 'owner_info_form' %>
+      <%= simple_form_for(@user) do |f| %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }, crop: :fill  %>
+        <%= f.submit "Add photos" %>
+      <% end %>
+    </div>
   </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>
