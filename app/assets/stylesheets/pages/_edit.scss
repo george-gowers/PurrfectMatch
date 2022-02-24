@@ -1,0 +1,104 @@
+body {
+  background-color: $creme;
+}
+
+.container {
+  background-color: white;
+}
+
+.form-row {
+  margin-top: 32px;
+}
+
+#heart {
+  margin-top: 32px;
+  margin-left: 16px;
+  text-align: center;
+  color: $pale-red;
+  font-weight: lighter;
+  font-size: 48px;
+  cursor: pointer;
+  z-index: 8;
+}
+
+.fa-heart {
+  transition: font-size 0.5s ease-out;
+}
+
+.fa-heart:hover {
+  color: $red;
+  font-size: 72px;
+}
+
+.avatar-container {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.avatar {
+  z-index: 7;
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  border-width: 1px;
+  background-color: $pale-red;
+  margin: auto;
+  overflow: hidden;
+}
+
+#user_avatar {
+  display: none;
+}
+
+.fa-cat {
+  margin: 0 -4px 48px;
+  font-size: 88px;
+  cursor: hand;
+  padding-top: 16px;
+}
+
+.fa-cat:hover {
+  color: $pale-gray;
+}
+
+.avatar-container {
+  margin-top: -100px;
+}
+
+.not-focused {
+  border-color: rgba(255, 255, 255, 0);
+}
+
+.full-screen {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carousel-inner .carousel-item {
+  transition: -webkit-transform 2s ease;
+  transition: transform 2s ease;
+  transition: transform 2s ease, -webkit-transform 2s ease;
+}
+
+.information {
+  margin-bottom: 48px;
+  padding: 32px;
+  p {
+    font-size: 12px;
+  }
+}
+
+.edit_user {
+  margin: 16px 32px 48px 32px;
+}
+
+.edit_owner {
+  text-align: right;
+}
+
+.edit_user {
+input, textarea {
+  width: 100%;
+  }
+}
