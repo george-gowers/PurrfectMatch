@@ -21,24 +21,14 @@
       </a>
     </div>
   <% else %>
-    <%= image_tag("no-photo.jpg", class: "cat-banner") %>
+    <%= image_tag("no-photo.jpg", class: "cat-banner", style: 'width:100%') %>
   <% end %>
 </div>
 
 <div class="container information">
   <div class="d-flex avatar-container">
-    <div class="avatar">
-      <%= form_for @user do |f| %>
-        <label for="user_avatar">
-          <% if @user.avatar.key.present? %>
-            <%= cl_image_tag @user.avatar.key %>
-          <% else %>
-            <i class="fas fa-cat" title="Upload the profile picture"></i>
-          <% end %>
-        </label>
-        <%= f.file_field :avatar, accept: 'image/png,image/jpeg' %>
-        <%= f.submit "Add avatar" %>
-    <% end %>
+    <div class="avatar" data-controller="edit-cat">
+      <%= render 'avatar_form' %>
     </div>
 
     <div id="heart">
@@ -51,9 +41,14 @@
     </div>
     <div class="col-6 owner-info-form" data-controller="edit-owner">
       <%= render 'owner_info_form' %>
-      <%= simple_form_for(@user) do |f| %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true }, crop: :fill  %>
-        <%= f.submit "Add photos" %>
+      <%= form_for @user do |f| %>
+      <div class="photos-buttons">
+        <label for="user_photos">
+          <i class="fas fa-solid fa-images"></i>
+        </label>
+        <%= f.file_field :photos, multiple: true, crop: :fill  %>
+        <%= f.submit "Add photos", class: "add_photos" %>
+        </div>
       <% end %>
     </div>
   </div>

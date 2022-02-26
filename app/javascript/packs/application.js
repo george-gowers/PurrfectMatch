@@ -55,6 +55,7 @@ document.addEventListener('turbolinks:load', () => {
     interval: 6000,
     pause: "false"
   });
+
   const banner = document.getElementById("banner-typed-text")
   if (banner) {
     loadDynamicBannerText();
