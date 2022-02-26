@@ -3,19 +3,24 @@
   <head>
     <title>CatTinder</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comforter&family=Poppins:ital,wght@1,600&family=Roboto:wght@300&family=Signika+Negative&display=swap" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
 
+
+
+    <%= render 'shared/navbar' %>
+
+    <%= render 'shared/flashes' %>
     <%= yield %>
+
+    <%= render 'shared/footer' %>
   </body>
 </html>

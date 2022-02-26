@@ -1,0 +1,21 @@
+.footer {
+  background-color: black;
+  padding: 3em;
+  color: white;
+  img {
+    width: 300px;
+  }
+  a {
+    color: white;
+    font-size: large;
+    padding-left: 2em;
+    text-decoration: none;
+  }
+  li {
+    list-style-type: none;
+  }
+}
+
+#foot-links li {
+  margin-bottom: 0.5em;
+}
