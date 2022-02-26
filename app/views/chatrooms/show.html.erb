@@ -1,4 +1,9 @@
-<h1>#<%= @chatroom.id %></h1>
+<% if current_user.id == @chatroom.engager_id %>
+  <% other_user = User.find(@chatroom.receiver_id) %>
+<% else %>
+  <% other_user = User.find(@chatroom.engager_id) %>
+<% end %>
+<h1>Begin your conversation with <%= other_user.name ? other_user.name : "Unknown Cat" %></h1>
 <div id="messages" data-chatroom-id="<%= @chatroom.engager_id %>">
   <% @chatroom.messages.each do |message| %>
   <%= render "messages/message", message: message %>
