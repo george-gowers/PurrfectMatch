@@ -1,0 +1,11 @@
+<%# Search bar to be added %>
+
+<% @users.each do |user| %>
+  <% if user.avatar.key.present? %>
+    <%= cl_image_tag user.avatar.key, crop: :fill, class: "navbar-avatar dropdown-toggle", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+  <% else %>
+    <%= image_tag("no-pic-cat", class: "navbar-avatar dropdown-toggle", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+  <% end %>
+  <h3><%= user.name %></h3>
+  <p><%= user.description %></p>
+<% end %>
