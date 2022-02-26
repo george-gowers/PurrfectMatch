@@ -1,0 +1,12 @@
+<%= form_for @user, html: { data: { edit_cat_target: 'form' } } do |f| %>
+  <label for="user_avatar">
+    <% if @user.avatar.key.present? %>
+      <%= cl_image_tag @user.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+    <% else %>
+      <i class="fas fa-cat" title="Upload the profile picture"></i>
+    <% end %>
+  </label>
+  <input type="hidden" data-edit-cat-target="token" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <%= f.file_field :avatar, data: { edit_cat_target: 'avatar', action: 'change->edit-cat#uploadAvatar' }, as: :file %>
+  <%= f.submit class:"d-none" %>
+<% end %>

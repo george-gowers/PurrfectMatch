@@ -46,6 +46,12 @@ body {
   overflow: hidden;
 }
 
+.avatar_pic {
+  border-radius: 50%;
+  margin-top: -17px;
+  margin-left: -32px;
+}
+
 #user_avatar {
   display: none;
 }
@@ -53,7 +59,7 @@ body {
 .fa-cat {
   margin: 0 -4px 48px;
   font-size: 88px;
-  cursor: hand;
+  cursor: pointer;
   padding-top: 16px;
 }
 
@@ -101,4 +107,35 @@ body {
 input, textarea {
   width: 100%;
   }
+}
+
+#user_photos {
+  display: none;
+}
+
+.add_photos {
+  border-width: 1px;
+  border-style: solid;
+  border-color: $pale-gray;
+  background-color: $creme;
+  padding: 4px;
+}
+
+.add_photos:hover {
+  background-color: $dark-creme;
+}
+
+.fa-images {
+  font-size: 56px;
+  color: $pale-gray;
+}
+
+.fa-images:hover {
+  color: black;
+}
+
+.photos-buttons {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
 }
