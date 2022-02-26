@@ -1,5 +1,9 @@
 // Specific CSS for your home-page
 body {
+  background-color: white !important;
+}
+
+.bg-white{
   background-color: white;
 }
 
@@ -53,6 +57,10 @@ body {
   background-color: #ffbcd9;
 }
 
+#info .container {
+  background-color: #ffbcd9;
+}
+
 .rounded-img {
   border-radius: 50%;
 }
@@ -68,7 +76,7 @@ body {
 }
 
 .contact-clean{
-  max-width: 700px;
+  max-width: 600px;
   margin: auto;
 }
 
