@@ -56,7 +56,10 @@ document.addEventListener('turbolinks:load', () => {
     pause: "false"
   });
 
-  loadDynamicBannerText();
+  const banner = document.getElementById("banner-typed-text")
+  if (banner) {
+    loadDynamicBannerText();
+  }
 });
 
 import "controllers"

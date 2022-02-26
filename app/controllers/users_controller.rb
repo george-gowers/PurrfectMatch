@@ -6,13 +6,17 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.update(user_params)
 
     respond_to do |format|
       format.html { redirect_to edit_user_registration_path }
-      if owner_params.present?
+      if avatar_params.present?
+        @user.update(avatar_params)
+        format.text { render partial: 'devise/registrations/avatar_form', locals: { user: @user }, formats: [:html] }
+      elsif owner_params.present?
+        @user.update(owner_params)
         format.text { render partial: 'devise/registrations/owner_info_form', locals: { user: @user }, formats: [:html] }
       else
+        @user.update(user_params)
         format.text { render partial: 'devise/registrations/cat_info_form', locals: { user: @user }, formats: [:html] }
       end
     end
@@ -21,7 +25,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :gender, :breed, :description, :owner_name, :owner_description, :avatar, photos: [])
+    params.require(:user).permit(:name, :gender, :breed, :description, photos: [])
+  end
+
+  def avatar_params
+    params.require(:user).permit(:avatar)
   end
 
   def owner_params
