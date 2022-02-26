@@ -1,6 +1,6 @@
 .footer {
   background-color: black;
-  padding: 5em;
+  padding: 3em;
   color: white;
   img {
     width: 300px;
@@ -14,8 +14,16 @@
   li {
     list-style-type: none;
   }
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 #foot-links li {
   margin-bottom: 0.5em;
+}
+
+@media (min-width: 992px) {
+  .footer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
