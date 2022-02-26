@@ -24,11 +24,11 @@ import "bootstrap";
 import { loadDynamicBannerText } from '../componets/banner';
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { initChatroomCable } from '../channels/chatroom_channel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+  initChatroomCable();
   jQuery.fn.carousel.Constructor.TRANSITION_DURATION = 2000
   var $item = $('.carousel-item');
   var $wHeight = $(window).height();
@@ -55,8 +55,10 @@ document.addEventListener('turbolinks:load', () => {
     interval: 6000,
     pause: "false"
   });
-
-  loadDynamicBannerText();
+  const banner = document.getElementById("banner-typed-text")
+  if (banner) {
+    loadDynamicBannerText();
+  }
 });
 
 import "controllers"
