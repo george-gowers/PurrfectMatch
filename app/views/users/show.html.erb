@@ -1,0 +1,57 @@
+<div>
+  <% if @user.photos.present? %>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <% @user.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= index ==0? 'active' : "" %>">
+            <%= cl_image_tag photo.key, class: "d-block img-fluid w-100" %>
+            <div class="carousel-caption d-md-block d-none"></div>
+          </div>
+        <% end %>
+      </div>
+      <!-- Controls -->
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  <% else %>
+    <%= image_tag("no-photo.jpg", class: "cat-banner", style: 'width:100%') %>
+  <% end %>
+</div>
+
+<div class="container information">
+  <div class="d-flex avatar-container">
+    <div class="avatar" data-controller="edit-cat">
+      <% unless @user.avatar.key.present? %>
+        <%= cl_image_tag @user.avatar.key, alt: 'Avatar', class: 'avatar_pic_show', height: 160, width: 160, crop: :fill %>
+      <% else %>
+      <i class="fas fa-cat cat-icon" title="Upload the profile picture"></i>
+      <% end %>
+    </div>
+
+    <div id="heart">
+      <i class="fas fa-duotone fa-heart"></i>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-6 cat-info-form info-show" data-controller="edit-cat">
+
+      <p><b>Name: </b><%= @user.name %></p>
+      <p><b>Gender: </b><%= @user.gender %></p>
+      <p><b>Breed: </b><%= @user.breed %></p>
+      <p><b>Description: </b><%= @user.description %></p>
+
+    </div>
+    <div class="col-6 owner-info-form info-show" data-controller="edit-owner">
+      <p><b>My human: </b><%= @user.owner_name %></p>
+      <p><b>A word from my human:: </b><%= @user.owner_description %></p>
+
+    </div>
+  </div>
+</div>
