@@ -24,34 +24,29 @@
     <%= image_tag("no-photo.jpg", class: "cat-banner", style: 'width:100%') %>
   <% end %>
 </div>
-
 <div class="container information">
   <div class="d-flex avatar-container">
-    <div class="avatar" data-controller="edit-cat">
+    <div class="avatar">
       <% unless @user.avatar.key.present? %>
         <%= cl_image_tag @user.avatar.key, alt: 'Avatar', class: 'avatar_pic_show', height: 160, width: 160, crop: :fill %>
       <% else %>
       <i class="fas fa-cat cat-icon" title="Upload the profile picture"></i>
       <% end %>
     </div>
-
     <div id="heart">
       <i class="fas fa-duotone fa-heart"></i>
     </div>
   </div>
   <div class="form-row">
-    <div class="col-6 cat-info-form info-show" data-controller="edit-cat">
-
+    <div class="col-6 cat-info-form info-show">
       <p><b>Name: </b><%= @user.name %></p>
       <p><b>Gender: </b><%= @user.gender %></p>
       <p><b>Breed: </b><%= @user.breed %></p>
       <p><b>Description: </b><%= @user.description %></p>
-
     </div>
-    <div class="col-6 owner-info-form info-show" data-controller="edit-owner">
+    <div class="col-6 owner-info-form info-show">
       <p><b>My human: </b><%= @user.owner_name %></p>
       <p><b>A word from my human:: </b><%= @user.owner_description %></p>
-
     </div>
   </div>
 </div>

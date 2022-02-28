@@ -138,3 +138,9 @@ input, textarea {
   width: 50%;
   margin: 0 auto;
 }
+
+#user_breed, #user_gender {
+  border: 1px solid;
+  border-color: $creme;
+  padding: 8px;
+}
