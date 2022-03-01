@@ -9,9 +9,19 @@
   z-index: 8;
 }
 
-.fa-heart {
-  transition: font-size 0.5s ease-out;
+.liked {
+  margin-top: 32px;
+  margin-left: 16px;
+  text-align: center;
+  color: red;
+  font-weight: lighter;
+  font-size: 48px;
+  z-index: 8;
 }
+
+// #heart i {
+//   transition: font-size 0.5s ease-out;
+// }
 
 .fa-cat {
   margin: 0 -4px 48px;

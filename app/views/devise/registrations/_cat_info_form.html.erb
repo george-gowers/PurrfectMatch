@@ -3,10 +3,10 @@
     <b>Name: <%= f.text_field :name, 'data-edit-cat-target': 'name', class: 'not-focused', 'data-action': 'blur->edit-cat#update' %></b>
   </p>
   <p data-action="click->edit-cat#displayGenderField">
-    <b>Gender: <%= f.text_field :gender, 'data-edit-cat-target': 'gender', class: 'not-focused', 'data-action': 'blur->edit-cat#update' %></b>
+    <b>Gender: <%= select :user, :gender, ['female', 'male'], { include_blank: true }, 'data-edit-cat-target': 'gender', class: 'not-focused', 'data-action': 'blur->edit-cat#update' %></b>
   </p>
   <p data-action="click->edit-cat#displayBreedField">
-    <b>Breed: <%= f.text_field :breed, 'data-edit-cat-target': 'breed', class: 'not-focused', 'data-action': 'blur->edit-cat#update' %></b>
+    <b>Breed: <%= select :user, :breed, ['Siamese', 'Persian', 'Maine Coon', 'Ragdoll', 'Bengal', 'Abyssinian', 'Birman', 'Oriental Shorthair', 'Sphynx', 'Devon Rex', 'Himalayan', 'American Shorthair', 'other - but still fabulous'], { include_blank: true }, 'data-edit-cat-target': 'breed', 'data-action': 'blur->edit-cat#update' %></b>
   </p>
   <p data-action="click->edit-cat#displayDescriptionField">
     <b>Description: <%= f.text_area :description, size: '40x10', 'data-edit-cat-target': 'description', class: 'not-focused', 'data-action': 'blur->edit-cat#update' %></b>

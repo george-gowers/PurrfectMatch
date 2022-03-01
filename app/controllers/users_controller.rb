@@ -9,9 +9,17 @@ class UsersController < ApplicationController
   end
 
   def like
+    @user = User.find(params[:id])
     @chatroom = Chatroom.create(engager_id: current_user.id, receiver_id: params[:id])
 
-    redirect_to chatrooms_path
+    redirect_to user_path
+  end
+
+  def dislike
+    @chatroom = Chatroom.find_by(engager_id: current_user.id, receiver_id: params[:id])
+    @chatroom.destroy
+
+    redirect_to user_path
   end
 
   def edit

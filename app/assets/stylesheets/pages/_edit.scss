@@ -20,11 +20,11 @@ body {
   z-index: 8;
 }
 
-.fa-heart {
+#heart .fa-heart {
   transition: font-size 0.5s ease-out;
 }
 
-.fa-heart:hover {
+#heart .fa-heart:hover {
   color: $red;
   font-size: 72px;
 }
@@ -137,4 +137,10 @@ input, textarea {
   text-align: center;
   width: 50%;
   margin: 0 auto;
+}
+
+#user_breed, #user_gender {
+  border: 1px solid;
+  border-color: $creme;
+  padding: 8px;
 }
