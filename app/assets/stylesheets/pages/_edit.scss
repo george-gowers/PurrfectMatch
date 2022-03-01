@@ -20,11 +20,11 @@ body {
   z-index: 8;
 }
 
-.fa-heart {
+#heart .fa-heart {
   transition: font-size 0.5s ease-out;
 }
 
-.fa-heart:hover {
+#heart .fa-heart:hover {
   color: $red;
   font-size: 72px;
 }

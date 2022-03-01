@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new, :create, :edit] do
     member do
       patch :like
+      delete :dislike
     end
   end
 
