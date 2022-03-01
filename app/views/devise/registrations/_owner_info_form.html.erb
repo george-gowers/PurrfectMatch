@@ -2,6 +2,9 @@
   <p data-action="click->edit-owner#displayNameField">
     <b>My human: <%= f.text_field :owner_name, 'data-edit-owner-target': 'ownerName', class: 'not-focused', 'data-action': 'blur->edit-owner#update' %></b>
   </p>
+  <p data-action="click->edit-owner#displayLocationField">
+    <b>Location: <%= f.text_field :location, 'data-edit-owner-target': 'ownerName', class: 'not-focused', 'data-action': 'blur->edit-owner#update' %></b>
+  </p>
   <p data-action="click->edit-owner#displayDescriptionField">
     <b>A word from my human: <%= f.text_area :owner_description, size: '40x10', 'data-edit-owner-target': 'ownerDescription', class: 'not-focused', 'data-action': 'blur->edit-owner#update' %></b>
   </p>

@@ -4,3 +4,12 @@
 @import "navbar";
 @import "user_sign_in";
 @import "footer";
+
+.no_cats_found{
+  position: absolute;
+  top: 72px;
+}
+
+.cats_search{
+  position: relative;
+}
