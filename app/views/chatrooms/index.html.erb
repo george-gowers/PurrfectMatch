@@ -1,5 +1,20 @@
-<h1>Chatrooms#index</h1>
-<p>Find me in app/views/chatrooms/index.html.erb</p>
-<% @chatrooms.each do |chatroom|%>
-  <%= chatroom.id %>
+<h1>Chats With Cats</h1>
+
+<h3>pending incoming chats</h5>
+<% @pending_incoming_chats.each do |chatroom|%>
+  <p><%= chatroom.engager.name %> wants to chat</p>
+<% end %>
+
+<h3>approved chats</h3>
+<% @approved_chats.each do |chatroom|%>
+    <% if current_user.id == chatroom.engager_id %>
+    <p>have a chat with <%= chatroom.receiver.name %></p>
+    <% else %>
+    <p>have a chat with <%= chatroom.engager.name %></p>
+    <% end %>
+<% end %>
+
+<h3>pending sent chats</h5>
+<% @pending_sent_chats.each do |chatroom|%>
+  <p>your chat with <%= chatroom.receiver.name %> is still pending</p>
 <% end %>

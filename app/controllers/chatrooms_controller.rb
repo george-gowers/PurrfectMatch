@@ -5,6 +5,21 @@ class ChatroomsController < ApplicationController
     all_chatrooms.each do |chatroom|
       @chatrooms << chatroom if (current_user.id == chatroom.engager_id || current_user.id == chatroom.receiver_id)
     end
+
+    @pending_incoming_chats = []
+    @chatrooms.each do |chatroom|
+      @pending_incoming_chats << chatroom if (chatroom.status == "pending" && current_user.id == chatroom.receiver_id)
+    end
+
+    @pending_sent_chats = []
+    @chatrooms.each do |chatroom|
+      @pending_sent_chats << chatroom if (chatroom.status == "pending" && current_user.id == chatroom.engager_id )
+    end
+
+    @approved_chats = []
+    @chatrooms.each do |chatroom|
+      @approved_chats << chatroom if (chatroom.status == "approved")
+    end
   end
 
   def show
