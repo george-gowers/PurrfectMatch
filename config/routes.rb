@@ -14,6 +14,9 @@ Rails.application.routes.draw do
       patch :like
       delete :dislike
     end
+    collection do
+      get :favorites
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
