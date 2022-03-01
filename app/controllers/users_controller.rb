@@ -3,9 +3,15 @@ class UsersController < ApplicationController
   def index
     @users = User.where.not(id: current_user.id)
   end
-  
+
   def show
     @user = User.find(params[:id])
+  end
+
+  def like
+    @chatroom = Chatroom.create(engager_id: current_user.id, receiver_id: params[:id])
+
+    redirect_to chatrooms_path
   end
 
   def edit
@@ -48,5 +54,4 @@ class UsersController < ApplicationController
   def owner_params
     params.require(:user).permit(:owner_name, :owner_description)
   end
-
 end

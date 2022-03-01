@@ -28,16 +28,18 @@
 <div class="container information">
   <div class="d-flex avatar-container">
     <div class="avatar" data-controller="edit-cat">
-      <% unless @user.avatar.key.present? %>
+      <% if @user.avatar.key.present? %>
         <%= cl_image_tag @user.avatar.key, alt: 'Avatar', class: 'avatar_pic_show', height: 160, width: 160, crop: :fill %>
       <% else %>
-      <i class="fas fa-cat cat-icon" title="Upload the profile picture"></i>
+        <i class="fas fa-cat cat-icon" title="Upload the profile picture"></i>
       <% end %>
     </div>
 
-    <div id="heart">
-      <i class="fas fa-duotone fa-heart"></i>
-    </div>
+    <%= link_to like_user_path, method: :patch do %>
+      <div id="heart">
+        <i class="fas fa-duotone fa-heart"></i>
+      </div>
+    <% end %>
   </div>
   <div class="form-row">
     <div class="col-6 cat-info-form info-show" data-controller="edit-cat">
