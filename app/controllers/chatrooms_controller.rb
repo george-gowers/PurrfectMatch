@@ -18,7 +18,8 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.create(engager_id: current_user.id, receiver_id: params[:id])
+    raise
+    redirect_to chatrooms_path
   end
 
   def destroy
