@@ -34,9 +34,23 @@
       <% end %>
     </div>
 
-    <%= link_to like_user_path, method: :patch do %>
-      <div id="heart">
-        <i class="fas fa-duotone fa-heart"></i>
+    <% @chatroom = Chatroom.find_by(engager_id: current_user.id, receiver_id: params[:id]) %>
+
+    <% if @chatroom.nil? %>
+      <%= link_to like_user_path, method: :patch do %>
+        <div id="heart">
+          <i class="fas fa-duotone fa-heart"></i>
+        </div>
+      <% end %>
+    <% elsif @chatroom.pending? %>
+      <%= link_to dislike_user_path, method: :delete do %>
+        <div class="liked">
+          <i class="fas fa-duotone fa-heart"></i>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="liked">
+          <i class="fas fa-duotone fa-heart"></i>
       </div>
     <% end %>
 
