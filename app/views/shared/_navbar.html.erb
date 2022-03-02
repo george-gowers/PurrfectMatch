@@ -31,10 +31,10 @@
             <%= image_tag("no-pic-cat.png", class: "navbar-avatar dropdown-toggle", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Action", "#", class: "dropdown-item dropdown-click" %>
+            <%= link_to "Another action", "#", class: "dropdown-item dropdown-click" %>
             <hr class="dropdown-divider">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item dropdown-click" %>
           </div>
         </li>
       <% else %>

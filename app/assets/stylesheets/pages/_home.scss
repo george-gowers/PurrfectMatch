@@ -77,9 +77,25 @@ body {
 
 .contact-clean{
   max-width: 600px;
-  margin: auto;
+  margin: 48px auto;
 }
 
+.submit_button {
+  border-color: $pink;
+  color: $pink;
+  font-weight: bolder;
+}
+
+.submit_button:hover {
+  color: white;
+  font-weight: bolder;
+  border-color: $pink;
+  background-color: $pink;
+}
+
+.submit_button:focus {
+  outline: 0 !important;
+}
 
 @media only screen and (max-width: 600px) {
   .main-img {

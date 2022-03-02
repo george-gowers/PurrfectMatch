@@ -4,8 +4,36 @@
   height: 300px;
 }
 
-
-.login-btn{
+.login-btn {
   font-family: 'Comforter', cursive;
   font-size: 64px;
+  color: $pink;
+  font-weight: bolder;
+}
+
+.sign_up_button, .login_button {
+  border-color: $pink;
+  color: $pink;
+  font-weight: bolder;
+}
+
+.sign_up_button:hover, .login_button:hover {
+  color: white;
+  font-weight: bolder;
+  border-color: $pink;
+  background-color: $pink;
+}
+
+.button_text {
+  color: $pink;
+  font-weight: bolder;
+}
+
+.button_text:hover {
+  color: white;
+  font-weight: bolder;
+}
+
+.button_banner {
+  margin-top: 32px;
 }
