@@ -1,19 +1,31 @@
-<%# Search bar to be added %>
-<% if @users.any? %>
-  <% @users.each do |user| %>
-    <% if user.avatar.key.present? %>
-      <%= cl_image_tag user.avatar.key, crop: :fill, class: "navbar-avatar dropdown-toggle", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
-    <% else %>
-      <%= image_tag("no-pic-cat", class: "navbar-avatar dropdown-toggle", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-    <% end %>
-    <h3><%= user.name %></h3>
-    <p><%= user.description %></p>
-  <% end %>
-  <% else %>
-  <div class="container cats_search">
-    <div class="no_cats_found">
-      <h3>No cats were found</h3>
+<div class="index_container">
+  <% if @users.any? %>
+    <div class="avatar_list">
+      <% @users.each do |user| %>
+        <div class="avatar_row d-flex align-items-center">
+          <div class="list_row">
+            <% if user.avatar.key.present? %>
+              <%= link_to user_path(user) do %>
+                <%= cl_image_tag user.avatar.key, crop: :fill, class: "avatar_pic found_match",  height: 160, width: 160, crop: :fill %>
+              <% end %>
+            <% else %>
+              <%= image_tag("no-pic-cat", class: "avatar_pic") %>
+            <% end %>
+          </div>
+          <div class="avatar_text">
+            <h4><%= user.name %></h4>
+            <span><%= user.description %></span>
+          </div>
+        </div>
+        <hr class="index_list">
+      <% end %>
     </div>
-    <%= image_tag("cat.jpg", class: "cat-banner", style: 'width:100%') %>
-  </div>
-<% end %>
+    <% else %>
+    <div class="cats_search">
+      <div class="no_cats_found">
+        <h3>No cats were found</h3>
+      </div>
+      <%= image_tag("cat.jpg", class: "cat-banner", style: 'width:100%') %>
+    </div>
+  <% end %>
+<div>
