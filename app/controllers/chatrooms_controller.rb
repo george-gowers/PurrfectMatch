@@ -38,4 +38,16 @@ class ChatroomsController < ApplicationController
 
     redirect_to chatrooms_path
   end
+
+  def accept
+    @chatroom = Chatroom.find(params[:id])
+    @chatroom.status = "approved"
+    @chatroom.save
+    redirect_to chatrooms_path
+  end
+
+  def decline
+
+  end
+
 end

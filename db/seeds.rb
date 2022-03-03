@@ -22,7 +22,7 @@ breeds = ["Sphynx", "Scottish Fold", "American Shorthair", "Maine Coon"]
   user = User.create(
     email: Faker::Internet.email,
     password: Faker::PhoneNumber.subscriber_number(length: 6),
-    name: "kittycat",
+    name: Faker::Name.first_name,
     gender: ["male", "female"].sample,
     description: "This is my cat it has grey hair and has adorable eyes",
     breed: breeds.sample,
