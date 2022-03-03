@@ -1,11 +1,16 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ['form', 'ownerName', 'ownerDescription'];
+  static targets = ['form', 'ownerName', 'location', 'ownerDescription'];
 
   displayNameField() {
     this.ownerNameTarget.classList.remove('not-focused');
     this.ownerDescriptionTarget.classList.add('not-focused');
+  }
+
+  displayLocationField() {
+    this.ownerDescriptionTarget.classList.remove('not-focused');
+    this.ownerLocationTarget.classList.add('not-focused');
   }
 
   displayDescriptionField() {
