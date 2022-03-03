@@ -9,7 +9,7 @@
       <% if chatroom.engager.avatar.key.present? %>
         <%= cl_image_tag @user.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
       <% else %>
-        <%= image_tag("no-pic-cat", height: 160, width: 160, crop: :fill ) %>
+        <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
       <% end %>
       <div class="card-product-infos">
         <h2><%= chatroom.engager.name %> wants to chat</h2>
@@ -29,7 +29,7 @@
             <% if chatroom.receiver.avatar.key.present? %>
               <%= cl_image_tag @user.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
             <% else %>
-              <%= image_tag("no-pic-cat", height: 160, width: 160, crop: :fill ) %>
+              <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
             <% end %>
             <div class="card-product-infos">
               <h2>Have a chat with <%= chatroom.receiver.name %> </h2>
@@ -42,7 +42,7 @@
           <% if chatroom.engager.avatar.key.present? %>
             <%= cl_image_tag @user.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
           <% else %>
-            <%= image_tag("no-pic-cat", height: 160, width: 160, crop: :fill ) %>
+            <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
           <% end %>
           <div class="card-product-infos">
           <h2>Have a chat with <%= chatroom.engager.name %></h2>
@@ -64,7 +64,7 @@
       <% if chatroom.engager.avatar.key.present? %>
         <%= cl_image_tag @user.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
       <% else %>
-        <%= image_tag("no-pic-cat", height: 160, width: 160, crop: :fill ) %>
+        <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
       <% end %>
       <div class="card-product-infos">
         <h2>your chat with <%= chatroom.receiver.name %> is still PENDING</h2>
