@@ -4,3 +4,55 @@
 @import "navbar";
 @import "user_sign_in";
 @import "footer";
+
+@import "card_product";
+
+@import "links";
+
+.no_cats_found{
+  position: absolute;
+  top: 72px;
+}
+
+.cats_search{
+  position: relative;
+}
+
+.avatar_list {
+ padding: 32px;
+}
+
+.found_match {
+  margin-top: 32px;
+  margin-bottom: 24px;
+  transition: all 0.3s ease-out;
+}
+
+.found_match:hover {
+	transform: scale(1.2, 1.2);
+	z-index: 9;
+}
+
+hr.index_list {
+  margin-bottom: 24px;
+}
+
+.index_container {
+  background-color: $creme;
+  margin: 32px;
+}
+
+#cat_description {
+  margin-bottom: 46px;
+}
+
+.list_row {
+  .avatar_pic {
+    margin: 0 0 24px 0px;
+  }
+}
+
+.avatar_text {
+  margin-left: 32px;
+}
+

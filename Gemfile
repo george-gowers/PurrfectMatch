@@ -30,7 +30,7 @@ gem 'stimulus-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
+gem 'geocoder'
 gem 'devise'
 
 gem 'autoprefixer-rails', '10.2.5'
