@@ -7,7 +7,7 @@
   <% @pending_incoming_chats.each do |chatroom|%>
     <div class="card-product">
       <% if chatroom.engager.avatar.key.present? %>
-        <%= cl_image_tag @user.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+        <%= cl_image_tag chatroom.engager.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
       <% else %>
         <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
       <% end %>
@@ -27,7 +27,7 @@
         <%= link_to chatroom_path(chatroom) do %>
           <div class="card-product">
             <% if chatroom.receiver.avatar.key.present? %>
-              <%= cl_image_tag @user.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+              <%= cl_image_tag chatroom.receiver.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
             <% else %>
               <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
             <% end %>
@@ -40,7 +40,7 @@
         <%= link_to chatroom_path(chatroom) do %>
           <div class="card-product">
           <% if chatroom.engager.avatar.key.present? %>
-            <%= cl_image_tag @user.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+            <%= cl_image_tag chatroom.engager.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
           <% else %>
             <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
           <% end %>
@@ -61,8 +61,8 @@
 
   <% @pending_sent_chats.each do |chatroom|%>
     <div class="card-product">
-      <% if chatroom.engager.avatar.key.present? %>
-        <%= cl_image_tag @user.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+      <% if chatroom.receiver.avatar.key.present? %>
+        <%= cl_image_tag chatroom.receiver.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
       <% else %>
         <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
       <% end %>
