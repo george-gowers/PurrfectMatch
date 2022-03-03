@@ -47,7 +47,7 @@
   <div class="pic-cards">
     <% @user.photos.each do |photo| %>
       <div class="pic-card border p-3 overflow-hidden">
-        <%= cl_image_tag photo.key, class:"img-thumbnail" %>
+        <%= cl_image_tag photo.key, class:"rounded" %>
       </div>
     <% end %>
     <div class="pic-card border d-flex justify-content-start">
