@@ -3,15 +3,10 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
-
-
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+require("@rails/ujs").start()
+require("turbolinks").start()
+require("@rails/activestorage").start()
+require("channels")
 
 
 // ----------------------------------------------------
@@ -20,15 +15,17 @@ ActiveStorage.start()
 // ----------------------------------------------------
 
 // External imports
+import "controllers"
+
 import "bootstrap";
 import { loadDynamicBannerText } from '../componets/banner';
 
 // Internal imports, e.g:
-import { initChatroomCable } from '../channels/chatroom_channel';
+// import { initChatroomCable } from '../channels/chatroom_channel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  initChatroomCable();
+  // initChatroomCable();
   jQuery.fn.carousel.Constructor.TRANSITION_DURATION = 2000
   var $item = $('.carousel-item');
   var $wHeight = $(window).height();
@@ -62,4 +59,13 @@ document.addEventListener('turbolinks:load', () => {
   }
 });
 
-import "controllers"
+const photos = document.querySelector(".photo-buttons i");
+const addPhotos = document.querySelector("#add-btn");
+
+photos.addEventListener('click', () => {
+  addPhotos.classList.remove("hide-btn");
+});
+
+addPhotos.addEventListener('click', () => {
+  addPhotos.classList.add("hide-btn");
+});

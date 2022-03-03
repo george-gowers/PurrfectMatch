@@ -26,6 +26,16 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
 
+  def favorites
+    fave_chats = Chatroom.where(engager_id: current_user.id)
+    @favorites = []
+
+    fave_chats.each do |chat|
+      other_id = chat.receiver_id
+      @favorites << User.find(other_id)
+    end
+  end
+
   def edit
     @user = current_user
   end

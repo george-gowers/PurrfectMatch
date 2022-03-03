@@ -7,12 +7,18 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :chatrooms, only: [ :index, :show, :destroy ] do
+    member do
+      get :accept
+    end
     resources :messages, only: :create
   end
   resources :users, except: [:new, :create, :edit] do
     member do
       patch :like
       delete :dislike
+    end
+    collection do
+      get :favorites
     end
   end
 

@@ -4,6 +4,9 @@
 @import "navbar";
 @import "user_sign_in";
 @import "footer";
+
+@import "card_product";
+
 @import "links";
 
 .no_cats_found{
@@ -52,3 +55,4 @@ hr.index_list {
 .avatar_text {
   margin-left: 32px;
 }
+
