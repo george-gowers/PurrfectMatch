@@ -112,18 +112,6 @@ input, textarea {
   display: none;
 }
 
-.add_photos {
-  border-width: 1px;
-  border-style: solid;
-  border-color: $pale-gray;
-  background-color: $creme;
-  padding: 4px;
-}
-
-.add_photos:hover {
-  background-color: $dark-creme;
-}
-
 .fa-images {
   font-size: 56px;
   color: $pale-gray;
@@ -133,14 +121,37 @@ input, textarea {
   color: black;
 }
 
-.photos-buttons {
+.photo-buttons {
   text-align: center;
   width: 50%;
   margin: 0 auto;
+  align-items: center;
+  i {
+    font-size: 750%;
+    cursor: pointer;
+    color: $pale-gray;
+  }
 }
 
 #user_breed, #user_gender {
   border: 1px solid;
   border-color: $creme;
   padding: 8px;
+}
+
+.pic-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .pic-cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 16px;
+  }
+}
+
+.hide-btn {
+  visibility: hidden;
 }

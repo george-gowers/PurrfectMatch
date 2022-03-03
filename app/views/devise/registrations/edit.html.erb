@@ -41,13 +41,23 @@
     </div>
     <div class="col-6 owner-info-form" data-controller="edit-owner">
       <%= render 'owner_info_form' %>
+    </div>
+  </div>
+
+  <div class="pic-cards">
+    <% @user.photos.each do |photo| %>
+      <div class="pic-card border p-3 overflow-hidden">
+        <%= cl_image_tag photo.key, class:"img-thumbnail" %>
+      </div>
+    <% end %>
+    <div class="pic-card border d-flex justify-content-start">
       <%= form_for @user do |f| %>
-      <div class="photos-buttons">
-        <label for="user_photos">
-          <i class="fas fa-solid fa-images"></i>
-        </label>
-        <%= f.file_field :photos, multiple: true, crop: :fill  %>
-        <%= f.submit "Add photos", class: "add_photos" %>
+        <div class="photo-buttons">
+          <label for="user_photos">
+            <i class="fas fa-plus"></i>
+          </label>
+          <%= f.file_field :photos, multiple: true, crop: :thumb  %>
+          <%= f.submit "Add", class: "px-3 hide-btn", id: "add-btn" %>
         </div>
       <% end %>
     </div>
