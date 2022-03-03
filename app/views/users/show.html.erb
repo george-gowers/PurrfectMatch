@@ -44,12 +44,12 @@
       <% end %>
     <% elsif @chatroom.pending? %>
       <%= link_to dislike_user_path, method: :delete do %>
-        <div class="liked">
+        <div id="heart" class="liked">
           <i class="fas fa-duotone fa-heart"></i>
         </div>
       <% end %>
     <% else %>
-      <div class="liked">
+      <div id="heart" class="liked">
           <i class="fas fa-duotone fa-heart"></i>
       </div>
     <% end %>
