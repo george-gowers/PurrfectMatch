@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.where.not(id: current_user.id)
+    if params[:location].present?
+      @users = User.near(params[:location], 50)
+    else
+      @users = User.where.not(id: current_user.id)
+    end
   end
 
   def show
@@ -48,7 +52,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-
   private
 
   def user_params
@@ -60,6 +63,6 @@ class UsersController < ApplicationController
   end
 
   def owner_params
-    params.require(:user).permit(:owner_name, :owner_description)
+    params.require(:user).permit(:owner_name, :location, :owner_description)
   end
 end

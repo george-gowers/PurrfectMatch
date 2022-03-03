@@ -1,0 +1,10 @@
+.link_text {
+  color: $pink;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.link_text:hover {
+  text-decoration: none;
+  color: $purple;
+}
