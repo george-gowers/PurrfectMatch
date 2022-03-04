@@ -1,6 +1,29 @@
 #heading-one{
-  color: rgb(255, 172, 172);
+  color: #AA336A;
   font-family: 'Comforter', cursive;
   font-size: 64px;
   padding: 16px;
+}
+
+.sbt-msg {
+  display: flex;
+  justify-content: center;
+}
+
+.msg-bg-pink{
+  background-color: rgb(255, 172, 172) !important;
+}
+
+
+.msg-input{
+  width: 900px !important;
+  height: 40px !important;
+  margin-right: 8px;
+}
+
+.msg-submit{
+  background-color: #FF9E9E !important;
+  color:white;
+  height: 20%;
+  width: 10%;
 }
