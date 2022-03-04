@@ -1,6 +1,6 @@
 .footer {
   background-color: black;
-  padding: 3em;
+  padding: 2em;
   color: white;
   img {
     width: 300px;
@@ -18,12 +18,8 @@
   grid-template-columns: 1fr;
 }
 
-#foot-links li {
+#foot-links{
   margin-bottom: 0.5em;
-}
-
-@media (min-width: 992px) {
-  .footer {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
+  display: flex;
+  flex-direction: column;
 }
