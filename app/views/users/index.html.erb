@@ -8,7 +8,7 @@
               <% if user.avatar.key.present? %>
                   <%= cl_image_tag user.avatar.key, crop: :fill, class: "avatar_pic found_match",  height: 160, width: 160 %>
               <% else %>
-                <%= image_tag("no-pic-cat", height: 160, width: 160, crop: :fill , class: "avatar_pic") %>
+                <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill , class: "avatar_pic") %>
               <% end %>
             <% end %>
           </div>
