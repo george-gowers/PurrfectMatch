@@ -1,77 +1,91 @@
-<div class="background">
+ <% if @chatrooms.count == 0 %>
 
-  <h1 class="chats-header">Chats With Cats</h1>
+  <div class="no-chats">
 
-  <p class="chats-paragraph">incoming requests</p>
+    <h3>You have no Chats</h3>
+    <h3>Go check out some Cats!</h3>
 
-  <% @pending_incoming_chats.each do |chatroom|%>
-    <div class="card-product">
-      <% if chatroom.engager.avatar.key.present? %>
-        <%= cl_image_tag chatroom.engager.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
-      <% else %>
-        <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
+  </div>
+
+  <% else %>
+
+    <div class="background">
+
+      <h1 class="chats-header">Chats With Cats</h1>
+
+      <% if @pending_incoming_chats.count != 0 %>
+        <p class="chats-paragraph">incoming requests</p>
       <% end %>
-      <div class="card-product-infos">
-        <h2><%= chatroom.engager.name %> wants to chat</h2>
-      </div>
-        <button><%= link_to "Accept", accept_chatroom_path(chatroom), class: "btn btn-success" %></button>
-        <button><%= link_to "Decline", chatroom_path(chatroom), class: "btn btn-danger", data: { method: :delete } %></button>
-    </div>
-  <% end %>
 
-
-  <p class="chats-paragraph" >ongoing chats</p>
-
-  <% @approved_chats.each do |chatroom|%>
-      <% if current_user.id == chatroom.engager_id %>
-        <%= link_to chatroom_path(chatroom) do %>
-          <div class="card-product">
-            <% if chatroom.receiver.avatar.key.present? %>
-              <%= cl_image_tag chatroom.receiver.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
-            <% else %>
-              <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
-            <% end %>
-            <div class="card-product-infos">
-              <h2>Have a chat with <%= chatroom.receiver.name %> </h2>
-            </div>
-          </div>
-        <% end %>
-      <% else %>
-        <%= link_to chatroom_path(chatroom) do %>
-          <div class="card-product">
+      <% @pending_incoming_chats.each do |chatroom|%>
+        <div class="card-product">
           <% if chatroom.engager.avatar.key.present? %>
             <%= cl_image_tag chatroom.engager.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
           <% else %>
             <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
           <% end %>
           <div class="card-product-infos">
-          <h2>Have a chat with <%= chatroom.engager.name %></h2>
+            <h2><%= chatroom.engager.name %> wants to chat</h2>
+          </div>
+            <%= link_to "Accept", accept_chatroom_path(chatroom), class: "btn btn-success"  %>
+            <%= link_to "Decline", chatroom_path(chatroom), class: "btn btn-danger", data: { method: :delete } %>
         </div>
-        </div>
-    <% end %>
-  <% end %>
-  <% end %>
-
-
-
-
-
-
-  <p class="chats-paragraph" >pending chats</p>
-
-  <% @pending_sent_chats.each do |chatroom|%>
-    <div class="card-product">
-      <% if chatroom.receiver.avatar.key.present? %>
-        <%= cl_image_tag chatroom.receiver.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
-      <% else %>
-        <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
       <% end %>
-      <div class="card-product-infos">
-        <h2>your chat with <%= chatroom.receiver.name %> is still PENDING</h2>
-      </div>
+
+      <% if @approved_chats.count != 0 %>
+        <p class="chats-paragraph" >ongoing chats</p>
+      <% end %>
+
+      <% @approved_chats.each do |chatroom|%>
+          <% if current_user.id == chatroom.engager_id %>
+            <%= link_to chatroom_path(chatroom) do %>
+              <div class="card-product approved-chat-div">
+                <% if chatroom.receiver.avatar.key.present? %>
+                  <%= cl_image_tag chatroom.receiver.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+                <% else %>
+                  <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
+                <% end %>
+                <div class="card-product-infos approved-chat">
+                  <h2>Have a chat with <%= chatroom.receiver.name %> </h2>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to chatroom_path(chatroom) do %>
+              <div class="card-product approved-chat-div">
+              <% if chatroom.engager.avatar.key.present? %>
+                <%= cl_image_tag chatroom.engager.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+              <% else %>
+                <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
+              <% end %>
+              <div class="card-product-infos approved-chat">
+              <h2>Have a chat with <%= chatroom.engager.name %></h2>
+            </div>
+            </div>
+        <% end %>
+      <% end %>
+      <% end %>
+
+
+      <% if @pending_sent_chats.count != 0 %>
+        <p class="chats-paragraph" >pending chats</p>
+      <% end %>
+
+      <% @pending_sent_chats.each do |chatroom|%>
+        <div class="card-product">
+          <% if chatroom.receiver.avatar.key.present? %>
+            <%= cl_image_tag chatroom.receiver.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+          <% else %>
+            <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
+          <% end %>
+          <div class="card-product-infos">
+            <h2>your chat with <%= chatroom.receiver.name %> is still PENDING</h2>
+          </div>
+        </div>
+      <% end %>
+
+
+
     </div>
+
   <% end %>
-
-
-
-</div>
