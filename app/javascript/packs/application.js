@@ -57,4 +57,9 @@ document.addEventListener('turbolinks:load', () => {
   if (banner) {
     loadDynamicBannerText();
   }
-});
+
+  const photos = document.querySelector(".photo-buttons i");
+  const addPhotos = document.querySelector("#add-btn");
+
+  });
+
