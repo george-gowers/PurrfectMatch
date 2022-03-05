@@ -1,11 +1,9 @@
-.background {
-  background-color: rgb(255, 172, 172);
-}
-
 .chats-header {
-  text-align: center;
+  color: $pale-red;
+  font-weight: bolder;
 }
 
 .chats-paragraph {
-  text-align: center;
+  font-weight: bold;
+  color: $pale-gray;
 }
