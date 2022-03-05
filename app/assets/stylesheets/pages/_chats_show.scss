@@ -3,6 +3,7 @@
   font-family: 'Comforter', cursive;
   font-size: 64px;
   padding: 16px;
+  text-align: center;
 }
 
 .sbt-msg {
@@ -14,11 +15,18 @@
   background-color: rgb(255, 172, 172) !important;
 }
 
+.container-1{
+  background-color: rgb(255, 172, 172) !important;
+  max-width: 900px;
+  margin: auto;
+}
+
 
 .msg-input{
-  width: 900px !important;
+  width: 700px !important;
   height: 40px !important;
-  margin-right: 8px;
+  margin-left: 16px;
+  margin-right:16px;
 }
 
 .msg-submit{

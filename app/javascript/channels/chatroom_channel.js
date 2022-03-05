@@ -23,7 +23,10 @@ document.addEventListener('turbolinks:load', () => {
     console.log(id)
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
-        console.log(data);
+        // console.log(data.split(':'));
+        // console.log(data.split(':')[2]);
+        data = data.replace('right', 'left')
+        data = data.replace('You', data.split(':')[2])
         messagesContainer.insertAdjacentHTML("beforeend", data)
       },
     });

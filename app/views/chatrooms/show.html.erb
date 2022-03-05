@@ -5,7 +5,7 @@
       <% other_user = User.find(@chatroom.engager_id) %>
     <% end %>
     <h1 id="heading-one">Your conversation with <%= other_user.name ? other_user.name : "Unknown Cat" %></h1>
-    <div id="messages" class="container" data-chatroom-id="<%= @chatroom.id %>">
+    <div id="messages" class="container-1" data-chatroom-id="<%= @chatroom.id %>">
       <% @chatroom.messages.each do |message| %>
         <%= render "messages/message", message: message %>
       <% end %>

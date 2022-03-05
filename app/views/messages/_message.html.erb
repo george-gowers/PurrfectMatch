@@ -1,19 +1,19 @@
   <div class="msg-bg-pink">
-    <div class="message-container msg-bg-pink" id="message-<%= message.id %>">
+    <div class="message-container-msg-bg-pink" id="message-<%= message.id %>">
       <i class="author">
         <% User.find(message.user_id).name ? name = User.find(message.user_id).name : name = "Unknown Cat"  %>
       </i>
       <% if message.user_id == current_user.id  %>
-        <div style="text-align:right;" class="msg-bg-pink">
-          <span><%= User.find(message.user_id) == current_user ? "You" : name %></span>
+        <div style="text-align:right;" class="msg-bg-pink one:<%=User.find(message.user_id).name%>:three">
+          <span> You </span>
           <small class="msg-item"><%= message.created_at.strftime("%b %e at %l:%M%p") %></small>
-          <p class="msg-item"><%= message.content %></p>
+          <p class="msg-item <%="message-#{message.id}"%>"><%= message.content %></p>
         </div>
       <% else %>
         <div style="text-align:left;" class="msg-bg-pink">
-          <span><%= User.find(message.user_id) == current_user ? "Other User" : name %></span>
+          <span><%= User.find(message.user_id) == current_user ? 'Other User' : name %></span>
           <small class="msg-item"><%= message.created_at.strftime("%b %e at %l:%M%p") %></small>
-          <p class="msg-item"><%= message.content %></p>
+          <p class="msg-item <%="message-#{message.id}"%>"><%= message.content %></p>
         </div>
       <% end  %>
     </div>
