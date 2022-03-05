@@ -1,31 +1,19 @@
-<div class="index_container">
-  <% if @users.any? %>
-    <div class="avatar_list">
-      <% @users.each do |user| %>
-        <div class="avatar_row d-flex align-items-center">
-          <div class="list_row">
-            <%= link_to user_path(user) do %>
-              <% if user.avatar.key.present? %>
-                  <%= cl_image_tag user.avatar.key, crop: :fill, class: "avatar_pic found_match",  height: 160, width: 160 %>
-              <% else %>
-                <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill , class: "avatar_pic") %>
-              <% end %>
+
+  <div class="flat-cards">
+    <% @users.each do |user| %>
+      <div class="card mb-2">
+        <div class="card-block p-3">
+          <div class="flats-photo">
+            <% if user.avatar.key.present? %>
+              <%= cl_image_tag flat.avatar.key, class:"card-img-top index-image" %>
+            <% else %>
+            <%= image_tag("no-pic-cat.png", class:"card-img-top my_flat_image index-image") %>
             <% end %>
           </div>
-          <div class="avatar_text">
-            <h4><%= user.name %></h4>
-            <span><%= user.description %></span>
-          </div>
+          <strong><p class="card-title"><%= user.name %></p></strong>
+          <%= link_to 'Check out this Cat!', user, class: "btn cat-button" %>
         </div>
-        <hr class="index_list">
-      <% end %>
-    </div>
-    <% else %>
-    <div class="cats_search">
-      <div class="no_cats_found">
-        <h3>No cats were found</h3>
       </div>
-      <%= image_tag("cat.jpg", class: "cat-banner", style: 'width:100%') %>
-    </div>
-  <% end %>
-<div>
+    <% end %>
+  </div>
+</div>

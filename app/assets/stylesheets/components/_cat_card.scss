@@ -1,0 +1,56 @@
+.flats-photo {
+  margin-bottom: 16px;
+}
+
+.card-img-top.my_flat_image {
+  width: 100%;
+  max-width: initial;
+}
+
+.cat-button {
+  width: 100%;
+  background-color: #ffcdcd;
+}
+
+.cat-button:hover {
+  width: 100%;
+  background-color: #ffa0a0;
+}
+
+.card-block.p-3 {
+  p {
+    font-size: 16px;
+  }
+}
+
+.card.mb-2 {
+  border-radius: 16px;
+  background-color: #fce7e7;
+}
+
+// dnjkjdenkd
+
+@media only screen and (min-width: 768px) {
+  .flats-map-grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .flat-cards {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .flats-map-grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+  }
+  .flat-cards {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+  }
+}
