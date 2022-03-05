@@ -24,8 +24,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size:80px;
-  color:white;
+  color: $pink;
   padding:16px;
+  font-weight: bolder;
+  text-shadow: 1px 1px 5px $pink;
 }
 
 .centered-btn {
@@ -41,6 +43,8 @@ body {
 .centered-btn button {
   color:white;
   font-family: 'Signika Negative', sans-serif;
+  background-color: white !important;
+  color: $pink !important;
 }
 
 #banner {
