@@ -1,26 +1,7 @@
-#heading-one{
-  color: #AA336A;
-  font-family: 'Comforter', cursive;
-  font-size: 64px;
-  padding: 16px;
-  text-align: center;
-}
-
 .sbt-msg {
   display: flex;
   justify-content: center;
 }
-
-.msg-bg-pink{
-  background-color: rgb(255, 172, 172) !important;
-}
-
-.container-1{
-  background-color: rgb(255, 172, 172) !important;
-  max-width: 900px;
-  margin: auto;
-}
-
 
 .msg-input{
   width: 700px !important;
@@ -34,4 +15,15 @@
   color:white;
   height: 20%;
   width: 10%;
+}
+
+.msg-show {
+  max-width: 800px;
+  margin: auto;
+}
+
+.chat-header1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

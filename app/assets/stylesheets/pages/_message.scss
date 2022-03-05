@@ -1,3 +1,24 @@
 .msg-item{
   font-family: 'Signika Negative', sans-serif;
 }
+
+.r-msg {
+  padding: 0.5em;
+  box-shadow: 1px 1px 3px $pale-red;
+  width: fit-content;
+  margin-top: 0.5em;
+  border-radius: 13px;
+}
+
+.l-msg {
+  padding: 0.5em;
+  box-shadow: 1px 1px 3px $pale-red;
+  width: fit-content;
+  margin-top: 0.5em;
+  border-radius: 13px;
+  background-color: $pale-red;
+}
+
+.msg-header {
+  color: $pale-gray;
+}
