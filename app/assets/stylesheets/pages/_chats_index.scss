@@ -1,21 +1,19 @@
-.background {
-  background-color: rgb(255, 162, 162);
-}
-
 .chats-header {
-  text-align: center;
+  color: $pale-red;
+  font-weight: bolder;
 }
 
 .chats-paragraph {
-  text-align: center;
-  padding-top: 10px;
-  background-color: rgb(255, 162, 162);
-  margin: 0;
-  border-radius: 24px;
-  border: 4px;
+  font-weight: bold;
+  color: $pale-gray;
 }
 
-.no-chats {
-  background-color: rgb(255, 172, 172);
-  padding-bottom: 32%;
+.card-product-infos {
+  text-decoration: none;
+  color: black;
+}
+
+.chats a:hover {
+  text-decoration: none;
+  color: black;
 }

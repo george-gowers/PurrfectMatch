@@ -30,7 +30,7 @@ document.addEventListener('turbolinks:load', () => {
   var $item = $('.carousel-item');
   var $wHeight = $(window).height();
   $item.eq(0).addClass('active');
-  $item.height($wHeight * 0.75);
+  $item.height($wHeight * 0.65);
   $item.addClass('full-screen');
 
   $('.carousel img').each(function () {
@@ -45,7 +45,7 @@ document.addEventListener('turbolinks:load', () => {
 
   $(window).on('resize', function () {
     $wHeight = $(window).height();
-    $item.height($wHeight * 0.75);
+    $item.height($wHeight * 0.65);
   });
 
   $('.carousel').carousel({
@@ -57,7 +57,9 @@ document.addEventListener('turbolinks:load', () => {
   if (banner) {
     loadDynamicBannerText();
   }
+
   const photos = document.querySelector(".photo-buttons i");
   const addPhotos = document.querySelector("#add-btn");
 
-  })
+  });
+
