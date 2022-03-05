@@ -1,20 +1,23 @@
-  <div class="msg-bg-pink">
-    <div class="message-container-msg-bg-pink" id="message-<%= message.id %>">
-      <i class="author">
-        <% User.find(message.user_id).name ? name = User.find(message.user_id).name : name = "Unknown Cat"  %>
-      </i>
-      <% if message.user_id == current_user.id  %>
-        <div style="text-align:right;" class="msg-bg-pink one:<%=User.find(message.user_id).name%>:three">
-          <span> You </span>
-          <small class="msg-item"><%= message.created_at.strftime("%b %e at %l:%M%p") %></small>
-          <p class="msg-item <%="message-#{message.id}"%>"><%= message.content %></p>
-        </div>
-      <% else %>
-        <div style="text-align:left;" class="msg-bg-pink">
-          <span><%= User.find(message.user_id) == current_user ? 'Other User' : name %></span>
-          <small class="msg-item"><%= message.created_at.strftime("%b %e at %l:%M%p") %></small>
-          <p class="msg-item <%="message-#{message.id}"%>"><%= message.content %></p>
-        </div>
-      <% end  %>
+
+<div class="message-container-msg-bg-pink" id="message-<%= message.id %>">
+  <i class="author">
+    <% User.find(message.user_id).name ? name = User.find(message.user_id).name : name = "Unknown Cat"  %>
+  </i>
+  <% if message.user_id == current_user.id  %>
+    <div style="text-align:right;" class="one:<%=User.find(message.user_id).name%>:three">
+      <span class="msg-header"> You </span>
+      <small class="msg-item msg-header"><%= message.created_at.strftime("%b %e at %l:%M%p") %></small>
+      <div class="d-flex justify-content-end">
+        <p class="r-msg msg-item <%="message-#{message.id}"%>" ><%= message.content %></p>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <div style="text-align:left;">
+      <span class="msg-header"><%= User.find(message.user_id) == current_user ? 'Other User' : name %></span>
+      <small class="msg-item msg-header"><%= message.created_at.strftime("%b %e at %l:%M%p") %></small>
+      <div class="d-flex justify-content-start">
+        <p class="l-msg msg-item <%="message-#{message.id}"%>"><%= message.content %></p>
+      </div>
+    </div>
+  <% end  %>
+</div>
