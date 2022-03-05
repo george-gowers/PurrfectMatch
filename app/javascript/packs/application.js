@@ -20,12 +20,12 @@ import "controllers"
 import "bootstrap";
 import { loadDynamicBannerText } from '../componets/banner';
 
-// Internal imports, e.g:
-// import { initChatroomCable } from '../channels/chatroom_channel';
+
+import { initChatroomCable } from '../channels/chatroom_channel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initChatroomCable();
+  initChatroomCable();
   jQuery.fn.carousel.Constructor.TRANSITION_DURATION = 2000
   var $item = $('.carousel-item');
   var $wHeight = $(window).height();
