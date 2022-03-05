@@ -3,9 +3,9 @@
     <%= image_tag "banner.jpg", height: 700, class: "main-img" %>
     <div class="centered">Scroll Down</div>
     <% if user_signed_in? %>
-      <div class="centered-btn"><button><%= link_to "Go to Profile", edit_user_registration_path, class: "btn bg-danger centered-btn rounded-pill" %></button></div>
+      <div class="centered-btn"><button><%= link_to "Go to Profile", edit_user_registration_path, class: "btn bg-white centered-btn rounded-pill" %></button></div>
     <% else %>
-      <div class="centered-btn"><button><%= link_to "Create Account", new_user_registration_path, class: "btn bg-danger centered-btn rounded-pill" %></button></div>
+      <div class="centered-btn"><button><%= link_to "Create Account", new_user_registration_path, class: "btn bg-white centered-btn rounded-pill" %></button></div>
     <% end %>
   </div>
   <section id="banner">
