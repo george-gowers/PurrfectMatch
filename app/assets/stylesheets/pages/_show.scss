@@ -6,17 +6,19 @@
   font-weight: lighter;
   font-size: 48px;
   cursor: pointer;
-  z-index: 8;
+  position: relative;
+  z-index: 10;
 }
 
 .liked {
   margin-top: 32px;
   margin-left: 16px;
   text-align: center;
-  color: red;
+  color: $red;
   font-weight: lighter;
   font-size: 48px;
-  z-index: 8;
+  position: relative;
+  z-index: 10;
 }
 
 // #heart i {

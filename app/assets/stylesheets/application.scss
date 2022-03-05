@@ -13,3 +13,9 @@
 @import "pages/index";
 @import "pages/message";
 @import "pages/chats_show"
+
+
+.content {
+  min-height: calc(100vh - 408px);
+}
+
