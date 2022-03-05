@@ -4,12 +4,12 @@
       <% @users.each do |user| %>
         <div class="avatar_row d-flex align-items-center">
           <div class="list_row">
-            <% if user.avatar.key.present? %>
-              <%= link_to user_path(user) do %>
-                <%= cl_image_tag user.avatar.key, crop: :fill, class: "avatar_pic found_match",  height: 160, width: 160, crop: :fill %>
+            <%= link_to user_path(user) do %>
+              <% if user.avatar.key.present? %>
+                  <%= cl_image_tag user.avatar.key, crop: :fill, class: "avatar_pic found_match",  height: 160, width: 160 %>
+              <% else %>
+                <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill , class: "avatar_pic") %>
               <% end %>
-            <% else %>
-              <%= image_tag("no-pic-cat", class: "avatar_pic") %>
             <% end %>
           </div>
           <div class="avatar_text">
