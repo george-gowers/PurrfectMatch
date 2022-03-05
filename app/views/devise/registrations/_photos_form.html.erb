@@ -1,0 +1,10 @@
+<%= form_for @user, html: { data: { edit_owner_target: 'form' } } do |f| %>
+  <div class="photo-buttons">
+    <label for="user_photos">
+      <i class="fas fa-plus"></i>
+    </label>
+    <input type="hidden" data-edit-owner-target="token" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <%= f.file_field :photos, multiple: true, crop: :thumb, as: :file, data: { edit_owner_target: 'photos', action: 'change->edit-owner#uploadPhotos' }  %>
+      <%= f.submit class:"d-none" %>
+  </div>
+<% end %>

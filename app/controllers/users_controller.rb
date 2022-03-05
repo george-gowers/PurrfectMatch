@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     if params[:location].present?
-      @users = User.near(params[:location], 50)
+      @users = User.near(params[:location], 100)
     else
       @users = User.where.not(id: current_user.id)
     end
@@ -51,6 +51,9 @@ class UsersController < ApplicationController
       elsif owner_params.present?
         @user.update(owner_params)
         format.text { render partial: 'devise/registrations/owner_info_form', locals: { user: @user }, formats: [:html] }
+      elsif photos_params.present?
+        @user.update(photos_params)
+        format.text { render partial: 'devise/registrations/carousel', locals: { user: @user }, formats: [:html] }
       else
         @user.update(user_params)
         format.text { render partial: 'devise/registrations/cat_info_form', locals: { user: @user }, formats: [:html] }
@@ -65,7 +68,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :gender, :breed, :description, photos: [])
+    params.require(:user).permit(:name, :gender, :breed, :description)
   end
 
   def avatar_params
@@ -74,5 +77,9 @@ class UsersController < ApplicationController
 
   def owner_params
     params.require(:user).permit(:owner_name, :location, :owner_description)
+  end
+
+  def photos_params
+    params.require(:user).permit(photos: [])
   end
 end

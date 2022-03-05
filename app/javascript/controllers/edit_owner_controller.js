@@ -1,7 +1,7 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ['form', 'ownerName', 'location', 'ownerDescription'];
+  static targets = ['form', 'ownerName', 'location', 'photos', 'ownerDescription', 'token', 'carousel'];
 
   displayNameField() {
     this.ownerNameTarget.classList.remove('not-focused');
@@ -31,5 +31,23 @@ export default class extends Controller {
         this.formTarget.outerHTML = data;
       })
   }
-
+  uploadPhotos() {
+    console.log('uploadPhotos');
+    let input = this.photosTarget.files;
+    let photoFile = new FormData();
+    for (let i = 0; i < input.length; i++) {
+      photoFile.append("user[photos][]", input[i]);
+    }
+    photoFile.append("authenticity_token", this.tokenTarget.value);
+    const url = this.formTarget.action
+    fetch(url, {
+      method: "PATCH",
+      headers: { 'Accept': 'text/plain' },
+      body: photoFile
+    })
+      .then(response => response.text())
+      .then((data) => {
+        document.getElementById('carousel').outerHTML = data;
+      });
+  }
 }
