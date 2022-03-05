@@ -6,7 +6,7 @@
   <% else %>
     <h1 class="chats-header">It's a match!</h1>
     <div class="chats">
-      <% unless @pending_incoming_chats.empty? %>
+      <% unless @approved_chats.empty? %>
         <p class="chats-paragraph">Chats</p>
         <% @approved_chats.each do |chatroom|%>
             <% if current_user.id == chatroom.engager_id %>
