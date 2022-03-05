@@ -28,6 +28,7 @@
           <div class="card-product">
             <% if chatroom.receiver.avatar.key.present? %>
               <%= cl_image_tag chatroom.receiver.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+
             <% else %>
               <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
             <% end %>

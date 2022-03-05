@@ -1,21 +1,19 @@
-<div style="background-color:#F09797;">
-  <div class="container">
+  <div class="msg-bg-pink">
     <% if current_user.id == @chatroom.engager_id %>
       <% other_user = User.find(@chatroom.receiver_id) %>
     <% else %>
       <% other_user = User.find(@chatroom.engager_id) %>
     <% end %>
-    <h1>Your conversation with <%= other_user.name ? other_user.name : "Unknown Cat" %></h1>
-    <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+    <h1 id="heading-one">Your conversation with <%= other_user.name ? other_user.name : "Unknown Cat" %></h1>
+    <div id="messages" class="container-1" data-chatroom-id="<%= @chatroom.id %>">
       <% @chatroom.messages.each do |message| %>
         <%= render "messages/message", message: message %>
       <% end %>
     </div>
-    <div class="sbt-msg">
-      <%= simple_form_for [@chatroom, @message ], remote: true do |f| %>
-        <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.id}" %>
-        <%= f.submit %>
+    <div>
+      <%= simple_form_for [@chatroom, @message ], remote: true, html: { class: "sbt-msg"} do |f| %>
+        <%= f.input :content, label: false, placeholder: "type a message", :input_html => { :class => 'msg-input' } %>
+        <%= f.button :submit, "send", class: "msg-submit" %>
       <% end %>
     </div>
   </div>
-</div>

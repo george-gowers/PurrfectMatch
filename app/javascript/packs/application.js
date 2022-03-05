@@ -62,10 +62,10 @@ document.addEventListener('turbolinks:load', () => {
 const photos = document.querySelector(".photo-buttons i");
 const addPhotos = document.querySelector("#add-btn");
 
-photos.addEventListener('click', () => {
-  addPhotos.classList.remove("hide-btn");
-});
+// photos.addEventListener('click', () => {
+//   addPhotos.classList.remove("hide-btn");
+// });
 
-addPhotos.addEventListener('click', () => {
-  addPhotos.classList.add("hide-btn");
-});
+// addPhotos.addEventListener('click', () => {
+//   addPhotos.classList.add("hide-btn");
+// });
