@@ -21,9 +21,9 @@
   z-index: 10;
 }
 
-// #heart i {
-//   transition: font-size 0.5s ease-out;
-// }
+#heart i {
+  transition: font-size 0.5s ease-out;
+ }
 
 .fa-cat {
   margin: 0 -4px 48px;
@@ -80,7 +80,7 @@
   margin-bottom: 48px;
   padding: 32px;
   p {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 

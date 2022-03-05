@@ -1,0 +1,26 @@
+<div id="carousel">
+  <% if @user.photos.present? %>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <% @user.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= index ==0? 'active' : "" %>">
+            <%= cl_image_tag photo.key, class: "d-block img-fluid w-100" %>
+            <div class="carousel-caption d-md-block d-none"></div>
+          </div>
+        <% end %>
+      </div>
+      <!-- Controls -->
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  <% else %>
+    <%= image_tag("no-photo.jpg", class: "cat-banner", style: 'width:100%') %>
+  <% end %>
+</div>
