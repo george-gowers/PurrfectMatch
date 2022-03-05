@@ -14,8 +14,8 @@
       <div class="card-product-infos">
         <h2><%= chatroom.engager.name %> wants to chat</h2>
       </div>
-        <button><%= link_to "Accept", accept_chatroom_path(chatroom), class: "btn btn-success" %></button>
-        <button><%= link_to "Decline", chatroom_path(chatroom), class: "btn btn-danger", data: { method: :delete } %></button>
+        <%= link_to "Accept", accept_chatroom_path(chatroom), class: "btn btn-success", id: "button1" %>
+        <%= link_to "Decline", chatroom_path(chatroom), class: "btn btn-danger", id: "button2", data: { method: :delete } %>
     </div>
   <% end %>
 
