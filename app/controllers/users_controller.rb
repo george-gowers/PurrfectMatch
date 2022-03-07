@@ -65,6 +65,26 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def subscribe
+    if user_signed_in?
+      @user = current_user
+      unless @user.subscribe
+        @user.subscribe = true
+        @user.save
+      end
+    end
+  end
+
+  def unsubscribe
+    if user_signed_in?
+      @user = current_user
+      if @user.subscribe
+        @user.subscribe = false
+        @user.save
+      end
+    end
+  end
+
   private
 
   def user_params
