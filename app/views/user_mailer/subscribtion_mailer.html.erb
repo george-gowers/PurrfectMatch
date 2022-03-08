@@ -1,0 +1,22 @@
+<div style="background-image: url('<%= image_path 'Salmon.png' %>'); background-size: cover; background-repeat: no-repeat; height: 600px; width: 600px; text-align: center; position: relative;">
+
+  <div style="display: block; font-family:verdana; position: absolute; top: 220px; left: 90px;">
+    <h3 style="font-family: 'Comforter', cursive; font-size:30px; font-weight: bolder; text-shadow: 1px 1px 5px rgb(255, 207, 207);">Dear Purrfect Match user</h3>
+    <b><p>Thank you for your interest in spreading love!</p></b>
+    <p>Our community counts <b><%= @counted_users %></b> new users!</p>
+  </div>
+
+  <div style="float: right;">
+    <%= image_tag "PurrfectMatch-logo.jpg", width: 200 %>
+  </div>
+</div>
+
+<style>
+  body, html {
+    margin: 0 auto;
+    padding: 0;
+  }
+  body {
+    height: 100vh;
+  }
+</style>

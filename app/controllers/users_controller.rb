@@ -71,6 +71,7 @@ class UsersController < ApplicationController
       unless @user.subscribe
         @user.subscribe = true
         @user.save
+        redirect_to edit_user_registration_path
       end
     end
   end
@@ -81,6 +82,7 @@ class UsersController < ApplicationController
       if @user.subscribe
         @user.subscribe = false
         @user.save
+        redirect_to edit_user_registration_path
       end
     end
   end

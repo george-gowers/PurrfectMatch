@@ -29,7 +29,7 @@
             <button type="submit" class="btn btn-light mx-1">Subscribe!</button>
           </form>
         <% else %>
-          <p>Unsubscribe!</p>
+          <p>You no longer want to receive the updates?</p>
           <form action="/unsubscribe" class="d-flex" method="post">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
             <button type="submit" class="btn btn-light mx-1">Unsubscribe!</button>
