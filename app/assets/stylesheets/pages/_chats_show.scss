@@ -17,13 +17,33 @@
   width: 10%;
 }
 
-.msg-show {
-  max-width: 800px;
-  margin: auto;
+.chats-top {
+  align-items: center;
+  height: fit-content;
+  img {
+    height: 90px;
+    width: auto;
+    margin: 5px;
+  }
+  padding: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 88px;
+  background-color: white;
+  z-index: 9;
 }
 
-.chat-header1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.msg-fix {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0px;
+  background-color: white;
+  margin-top: 5px;
+  padding: 1em;
+}
+
+.chats {
+  .active {
+    background: $pale-red !important;
+  }
 }

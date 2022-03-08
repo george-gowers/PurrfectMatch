@@ -1,11 +1,7 @@
 class ChatroomsController < ApplicationController
-  def index
-    @chatrooms = []
-    all_chatrooms = Chatroom.all
-    all_chatrooms.each do |chatroom|
-      @chatrooms << chatroom if (current_user.id == chatroom.engager_id || current_user.id == chatroom.receiver_id)
-    end
+  before_action :find_chatrooms, only: [ :index, :show ]
 
+  def index
     @pending_incoming_chats = []
     @chatrooms.each do |chatroom|
       @pending_incoming_chats << chatroom if (chatroom.status == "pending" && current_user.id == chatroom.receiver_id)
@@ -27,6 +23,12 @@ class ChatroomsController < ApplicationController
     if (current_user.id == chat.engager_id || current_user.id == chat.receiver_id)
       @message = Message.new
       @chatroom = chat
+
+      @approved_chats = []
+      @chatrooms.each do |chatroom|
+        @approved_chats << chatroom if (chatroom.status == "approved")
+      end
+
     else
       redirect_to chatrooms_path
     end
@@ -44,6 +46,16 @@ class ChatroomsController < ApplicationController
     @chatroom.status = "approved"
     @chatroom.save
     redirect_to chatrooms_path
+  end
+
+  private
+
+  def find_chatrooms
+    @chatrooms = []
+    all_chatrooms = Chatroom.all
+    all_chatrooms.each do |chatroom|
+      @chatrooms << chatroom if (current_user.id == chatroom.engager_id || current_user.id == chatroom.receiver_id)
+    end
   end
 
 end
