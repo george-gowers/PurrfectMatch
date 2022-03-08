@@ -1,56 +1,113 @@
-.flats-photo {
+.users-photo {
   margin-bottom: 16px;
-}
-
-.card-img-top.my_flat_image {
-  width: 100%;
-  max-width: initial;
+  overflow: hidden;
 }
 
 .cat-button {
   width: 100%;
-  background-color: #ffcdcd;
+  color: $pink;
+  font-weight: bolder;
+  font-size: 0.8em;
+  background-color: white;
+  border: solid 1px $purple;
 }
 
 .cat-button:hover {
   width: 100%;
-  background-color: #ffa0a0;
+  background-color: $purple;
+  color: white;
+  font-weight: bolder;
 }
 
 .card-block.p-3 {
+  transition: all 0.2s ease-in;
+  height: 30vw;
   p {
     font-size: 16px;
   }
 }
 
 .card.mb-2 {
-  border-radius: 16px;
-  background-color: #fce7e7;
+  box-shadow: 10px 5px 5px $creme ;
+  margin: 0 16px 0 16px;
 }
 
-// dnjkjdenkd
+.index-image {
+  height: 15vw;
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  transition: all 0.2s ease-in;
+}
+
+.user-cards {
+  margin: 56px 48px 56px 48px;
+}
+
+@media only screen and (min-width: 200px) {
+  .index-image {
+    height: 40vw;
+  }
+  .card-block.p-3 {
+    height: 62vw;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .index-image {
+    height: 40vw;
+  }
+  .card-block.p-3 {
+   height: 60vw;
+  }
+  .users-map-grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+  }
+  .user-cards {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+  }
+}
 
 @media only screen and (min-width: 768px) {
-  .flats-map-grid {
+  .index-image {
+    height: 12vw;
+  }
+  .card-block.p-3 {
+    height: 30vw;
+  }
+  .users-map-grid {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .flat-cards {
+  .user-cards {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-@media only screen and (max-width: 600px) {
-  .flats-map-grid {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 1fr;
+
+@media only screen and (min-width: 800px) {
+  .index-image {
+    height: 17vw;
   }
-  .flat-cards {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 1fr;
+  .card-block.p-3 {
+    height: 32vw;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .card-block.p-3 {
+    height: 30vw;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .card-block.p-3 {
+    height: 28vw;
   }
 }
