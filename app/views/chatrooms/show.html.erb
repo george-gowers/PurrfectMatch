@@ -51,11 +51,19 @@
             <% end %>
           <% end %>
         <% end %>
-        <div class="chats-bottom">
-          <%= link_to user_path(current_user) do %>
-            <i class="fas fa-user"></i>
-          <% end %>
-        </div>
+      </div>
+      <div class="chats-bottom">
+        <%= link_to root_path do %>
+          <i class="fas fa-home"></i>
+        <% end %>
+
+        <%= link_to chatrooms_path do %>
+          <i class="fas fa-envelope"></i>
+        <% end %>
+
+        <%= link_to user_path(current_user) do %>
+          <i class="fas fa-paw"></i>
+        <% end %>
       </div>
     </div>
     <div class="container col-8">

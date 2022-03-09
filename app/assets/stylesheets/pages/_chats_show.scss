@@ -79,4 +79,17 @@
   position: -webkit-sticky;
   position: sticky;
   bottom: 0px;
+  background-color: white;
+  margin-top: 5px;
+  padding: 1em;
+  display: flex;
+  justify-content: space-evenly;
+  i {
+    color: grey;
+    font-size: xx-large;
+  }
+  a:hover {
+    text-decoration: none;
+    text-shadow: 1px 2px 5px $pale-red;
+  }
 }
