@@ -8,9 +8,9 @@ class UserMailer < ApplicationMailer
   def subscribtion_mailer
     users = User.where(subscribe: true)
     @counted_users = User.count
-    mail to: 'a@wp.pl'
+    mail to: 'msafuler@gmail.com'
     users.each do |user|
-      mail to: user.email
+      #mail to: user.email
     end
   end
 end
