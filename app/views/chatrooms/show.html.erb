@@ -1,26 +1,83 @@
-<div class="container py-5 msg-show">
-  <% if current_user.id == @chatroom.engager_id %>
-    <% other_user = User.find(@chatroom.receiver_id) %>
-  <% else %>
-    <% other_user = User.find(@chatroom.engager_id) %>
-  <% end %>
-  <div class="chat-header1">
-    <% if other_user.avatar.key.present? %>
-      <%= cl_image_tag other_user.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
-    <% else %>
-      <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
-    <% end %>
-    <h1 class="chats-header">Your chat with <%= other_user.name ? other_user.name : "Unknown Cat" %></h1>
+<% if current_user.id == @chatroom.engager_id %>
+  <% other_user = User.find(@chatroom.receiver_id) %>
+<% else %>
+  <% other_user = User.find(@chatroom.engager_id) %>
+<% end %>
+<div class="chats-view">
+  <div class="row d-flex chats-top justify-content-between text-center shadow-sm">
+    <h2 class="col-4 chats-header">Messages</h2>
+    <div class="col-8 d-flex align-items-center justify-content-start">
+      <%= link_to user_path(other_user) do %>
+        <% if other_user.avatar.key.present? %>
+          <%= cl_image_tag other_user.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+        <% else %>
+          <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
+        <% end %>
+      <% end %>
+      <h1 class="chats-header mx-3"><%= other_user.name ? other_user.name : "Unknown Cat" %></h1>
+    </div>
   </div>
-  <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-    <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-    <% end %>
-  </div>
-  <div class="fixed-bottom">
-    <%= simple_form_for [@chatroom, @message ], remote: true, html: { class: "sbt-msg"} do |f| %>
-      <%= f.input :content, label: false, placeholder: "type a message", :input_html => { :class => 'msg-input' } %>
-      <%= f.button :submit, "send", class: "msg-submit" %>
-    <% end %>
+  <div class="d-flex row chats-body">
+    <div class="col-4">
+      <div class="chats chats-show">
+        <% unless @approved_chats.empty? %>
+          <% @approved_chats.each do |chatroom|%>
+            <% if current_user.id == chatroom.engager_id %>
+              <%= link_to chatroom_path(chatroom) do %>
+                <div class="card-product my-2 <% 'active' if chatroom == @chatroom %>">
+                  <% if chatroom.receiver.avatar.key.present? %>
+                    <%= cl_image_tag chatroom.receiver.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+                  <% else %>
+                    <%= image_tag("no-pic-cat.png", height: 50, width: 50, crop: :fill ) %>
+                  <% end %>
+                  <div class="card-product-infos mx-3">
+                    <p><%= chatroom.receiver.name ? chatroom.receiver.name : "Unknown Cat" %> </p>
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to chatroom_path(chatroom) do %>
+                <div class="card-product m-2 <%= 'active' if chatroom == @chatroom %>">
+                  <% if chatroom.engager.avatar.key.present? %>
+                    <%= cl_image_tag chatroom.engager.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+                  <% else %>
+                    <%= image_tag("no-pic-cat.png", height: 50, width: 50, crop: :fill ) %>
+                  <% end %>
+                  <div class="card-product-infos mx-3">
+                    <p><%= chatroom.engager.name ? chatroom.engager.name : "Unknown Cat" %></p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="chats-bottom">
+        <%= link_to root_path do %>
+          <i class="fas fa-home"></i>
+        <% end %>
+
+        <%= link_to chatrooms_path do %>
+          <i class="fas fa-envelope"></i>
+        <% end %>
+
+        <%= link_to user_path(current_user) do %>
+          <i class="fas fa-paw"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class="container col-8">
+      <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+        <% @chatroom.messages.each do |message| %>
+          <%= render "messages/message", message: message %>
+        <% end %>
+      </div>
+      <div class="msg-fix">
+        <%= simple_form_for [@chatroom, @message ], remote: true, html: { class: "sbt-msg"} do |f| %>
+          <%= f.input :content, label: false, placeholder: "type a message", :input_html => { :class => 'msg-input' } %>
+          <%= f.button :submit, "send", class: "msg-submit" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

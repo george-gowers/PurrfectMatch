@@ -17,13 +17,79 @@
   width: 10%;
 }
 
-.msg-show {
-  max-width: 800px;
-  margin: auto;
+.chats-top {
+  align-items: center;
+  height: fit-content;
+  img {
+    height: 90px;
+    width: auto;
+    margin: 5px;
+  }
+  padding: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 88px;
+  background-color: white;
+  z-index: 9;
 }
 
-.chat-header1 {
+.msg-fix {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0px;
+  background-color: white;
+  margin-top: 5px;
+  padding: 1em;
+}
+
+.chats {
+  .active {
+    background: $pale-red !important;
+  }
+}
+
+.chats-show {
+  height: 75vh;
+  overflow-y: scroll;
+  z-index: 0;
+  .card-product {
+    height: 90px !important;
+  }
+  img {
+    height: 70px !important;
+    width: 70px !important;;
+  }
+}
+
+#messages {
+  height: 75vh;
+  overflow-y: scroll;
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-top: 1em;
+  background-image: image-url("cats-bg.png");
+}
+
+.chats-body {
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
+.chats-bottom {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0px;
+  background-color: white;
+  margin-top: 5px;
+  padding: 1em;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-evenly;
+  i {
+    color: grey;
+    font-size: xx-large;
+  }
+  a:hover {
+    text-decoration: none;
+    text-shadow: 1px 2px 5px $pale-red;
+  }
 }

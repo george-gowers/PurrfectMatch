@@ -1,5 +1,5 @@
 
-<div class="message-container-msg-bg-pink" id="message-<%= message.id %>">
+<div id="message-<%= message.id %>">
   <i class="author">
     <% User.find(message.user_id).name ? name = User.find(message.user_id).name : name = "Unknown Cat"  %>
   </i>
