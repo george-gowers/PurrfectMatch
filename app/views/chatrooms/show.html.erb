@@ -3,8 +3,8 @@
 <% else %>
   <% other_user = User.find(@chatroom.engager_id) %>
 <% end %>
-<div class="px-5 chats-view">
-  <div class="row d-flex chats-top justify-content-between border-bottom text-center">
+<div class="chats-view">
+  <div class="row d-flex chats-top justify-content-between text-center shadow-sm">
     <h2 class="col-4 chats-header">Messages</h2>
     <div class="col-8 d-flex align-items-center justify-content-start">
       <%= link_to user_path(other_user) do %>
@@ -17,9 +17,9 @@
       <h1 class="chats-header mx-3"><%= other_user.name ? other_user.name : "Unknown Cat" %></h1>
     </div>
   </div>
-  <div class="d-flex row">
+  <div class="d-flex row chats-body">
     <div class="col-4">
-      <div class="chats">
+      <div class="chats chats-show">
         <% unless @approved_chats.empty? %>
           <% @approved_chats.each do |chatroom|%>
             <% if current_user.id == chatroom.engager_id %>
@@ -51,6 +51,11 @@
             <% end %>
           <% end %>
         <% end %>
+        <div class="chats-bottom">
+          <%= link_to user_path(current_user) do %>
+            <i class="fas fa-user"></i>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="container col-8">
