@@ -64,6 +64,15 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "Cat_Tinder_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.smtp_settings = {
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    # :domain         => '<yourapp>.heroku.com',
+    :authentication => :plain,
+  }
+  config.action_mailer.delivery_method = :smtp
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
