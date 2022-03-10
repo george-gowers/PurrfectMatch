@@ -27,3 +27,9 @@
 .msgs-container {
   background-image: image-url("cats-bg.png");
 }
+
+.c-pending {
+  .card-product {
+    background-color: rgb(221, 221, 221) !important;
+  }
+}

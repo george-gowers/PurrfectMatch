@@ -5,11 +5,7 @@
         <div class="card-block p-3">
           <div class="users-photo">
             <% if user.avatar.key.present? %>
-<<<<<<< HEAD
-              <%= cl_image_tag user.avatar.key, class:"card-img-top index-image" %>
-=======
               <%= cl_image_tag user.avatar.key, class:"index-image", crop: :fill, gravity: 'auto' %>
->>>>>>> 48b0ba1bdcb2e7e9ab2b451ba190ad479b1a4632
             <% else %>
             <%= image_tag("no-photo.jpg", class:"index-image") %>
             <% end %>
@@ -17,7 +13,7 @@
           <% if user.name.present? %>
             <strong><p class="card-title"><%= user.name %></p></strong>
           <% else %>
-            <strong><p class="card-title">No name cat</p></strong>
+            <strong><p class="card-title">Unknown Cat</p></strong>
           <% end %>
           <%= link_to 'Check out this Cat!', user, class: "btn cat-button" %>
         </div>

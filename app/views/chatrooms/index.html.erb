@@ -10,33 +10,33 @@
           <% unless @approved_chats.empty? %>
             <p class="chats-paragraph">Chats</p>
             <% @approved_chats.each do |chatroom|%>
-                <% if current_user.id == chatroom.engager_id %>
+              <% if current_user.id == chatroom.engager_id %>
+                <div class="card-product my-2">
                   <%= link_to chatroom_path(chatroom) do %>
-                    <div class="card-product my-2">
-                      <% if chatroom.receiver.avatar.key.present? %>
-                        <%= cl_image_tag chatroom.receiver.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
-                      <% else %>
-                        <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
-                      <% end %>
-                      <div class="card-product-infos">
-                        <h2>Have a chat with <%= chatroom.receiver.name = "" ? "Unknown Cat": chatroom.receiver.name %> </h2>
-                      </div>
+                    <% if chatroom.receiver.avatar.key.present? %>
+                      <%= cl_image_tag chatroom.receiver.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+                    <% else %>
+                      <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
+                    <% end %>
+                    <div class="card-product-infos">
+                      <h2>Have a chat with <%= chatroom.receiver.name = "" ? "Unknown Cat": chatroom.receiver.name %> </h2>
                     </div>
                   <% end %>
-                <% else %>
-                  <%= link_to chatroom_path(chatroom) do %>
-                    <div class="card-product m-2">
-                      <% if chatroom.engager.avatar.key.present? %>
-                        <%= cl_image_tag chatroom.engager.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
-                      <% else %>
-                        <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
-                      <% end %>
-                      <div class="card-product-infos">
-                        <h2>Have a chat with <%= chatroom.engager.name = "" ? "Unknown Cat": chatroom.engager.name %></h2>
-                      </div>
+                </div>
+              <% else %>
+                <%= link_to chatroom_path(chatroom) do %>
+                  <div class="card-product m-2">
+                    <% if chatroom.engager.avatar.key.present? %>
+                      <%= cl_image_tag chatroom.engager.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+                    <% else %>
+                      <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
+                    <% end %>
+                    <div class="card-product-infos">
+                      <h2>Have a chat with <%= chatroom.engager.name = "" ? "Unknown Cat": chatroom.engager.name %></h2>
                     </div>
-                  <% end %>
+                  </div>
                 <% end %>
+              <% end %>
             <% end %>
           <% end %>
         </div>
@@ -62,7 +62,7 @@
           <% end %>
         </div>
 
-        <div class="chats">
+        <div class="chats c-pending">
           <% unless @pending_sent_chats.empty? %>
             <p class="chats-paragraph" >Pending</p>
 
@@ -76,7 +76,7 @@
                   <% end %>
                 <% end %>
                 <div class="card-product-infos">
-                  <h2>your chat with <%= chatroom.receiver.name = "" ? "Unknown Cat" : chatroom.receiver.name %> is still PENDING</h2>
+                  <h2>your chat with <%= chatroom.receiver.name = "" ? "Unknown Cat" : chatroom.receiver.name %> is still <strong>PENDING</strong></h2>
                 </div>
               </div>
             <% end %>
@@ -89,8 +89,8 @@
           <i class="fas fa-home"></i>
         <% end %>
 
-        <%= link_to chatrooms_path do %>
-          <i class="fas fa-envelope"></i>
+        <%= link_to users_path do %>
+          <i class="fa fa-search"></i>
         <% end %>
 
         <%= link_to user_path(current_user) do %>
