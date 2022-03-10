@@ -71,6 +71,11 @@ class UsersController < ApplicationController
       unless @user.subscribe
         @user.subscribe = true
         @user.save
+
+        # TODO REMOVE mailer variable
+        mailer = UserMailer.new
+        mailer.weekly_summary
+
         redirect_to edit_user_registration_path
       end
     end
