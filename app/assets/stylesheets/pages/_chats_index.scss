@@ -1,6 +1,7 @@
 .chats-header {
   color: $pale-red;
   font-weight: bolder;
+  box-shadow: 1px ;
 }
 
 .chats-paragraph {
@@ -16,4 +17,19 @@
 .chats a:hover {
   text-decoration: none;
   color: black;
+}
+
+.msgs-index {
+  height: 75vh;
+  overflow-y: auto;
+}
+
+.msgs-container {
+  background-image: image-url("cats-bg.png");
+}
+
+.c-pending {
+  .card-product {
+    background-color: rgb(221, 221, 221) !important;
+  }
 }
