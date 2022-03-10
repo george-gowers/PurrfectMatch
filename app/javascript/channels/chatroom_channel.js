@@ -19,7 +19,6 @@ const initChatroomCable = () => {
 
 export { initChatroomCable };
 
-<<<<<<< HEAD
 document.addEventListener('turbolinks:load', () => {
   const messagesContainer = document.getElementById('messages');
   if (messagesContainer) {
@@ -36,16 +35,3 @@ document.addEventListener('turbolinks:load', () => {
     });
   }
 });
-=======
-// document.addEventListener('turbolinks:load', () => {
-//   const messagesContainer = document.getElementById('messages');
-//   if (messagesContainer) {
-//     const id = messagesContainer.dataset.chatroomId;
-//     console.log(id)
-//     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
-//       received(data) {
-//       },
-//     });
-//   }
-// });
->>>>>>> 427817b6126975dd3c17be39322732365fd8d4ce
