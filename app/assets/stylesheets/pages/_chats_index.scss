@@ -33,3 +33,20 @@
     background-color: rgb(221, 221, 221) !important;
   }
 }
+
+.msgs-index-none {
+  height: 60vh;
+  text-align: center;
+  .btn:hover {
+    color:pink;
+    background-color: white;
+    border: 1px solid pink;
+  }
+  .btn {
+    color:white;
+    background-color: pink;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 13px;
+  }
+}

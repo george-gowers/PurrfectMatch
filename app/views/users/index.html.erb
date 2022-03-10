@@ -1,4 +1,4 @@
-
+<div class="cats-index px-5">
   <div class="user-cards">
     <% @users.each do |user| %>
       <div class="card mb-2">
@@ -18,6 +18,19 @@
           <%= link_to 'Check out this Cat!', user, class: "btn cat-button" %>
         </div>
       </div>
+    <% end %>
+  </div>
+  <div class="chats-bottom">
+    <%= link_to root_path do %>
+      <i class="fas fa-home"></i>
+    <% end %>
+
+    <%= link_to chatrooms_path do %>
+      <i class="fas fa-envelope"></i>
+    <% end %>
+
+    <%= link_to user_path(current_user) do %>
+      <i class="fas fa-paw"></i>
     <% end %>
   </div>
 </div>
