@@ -5,17 +5,13 @@ class ChatroomsController < ApplicationController
     @approved_chats = Chatroom.approved_chats(current_user)
   end
 
+
   def show
     chat = Chatroom.find(params[:id])
     if (current_user.id == chat.engager_id || current_user.id == chat.receiver_id)
       @message = Message.new
+      @approved_chats = @approved_chats = Chatroom.approved_chats(current_user)
       @chatroom = chat
-
-      @approved_chats = []
-      @chatrooms.each do |chatroom|
-        @approved_chats << chatroom if (chatroom.status == "approved")
-      end
-
     else
       redirect_to chatrooms_path
     end
