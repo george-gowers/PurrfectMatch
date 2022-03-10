@@ -50,7 +50,7 @@
 
 .chats-show {
   height: 75vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   z-index: 0;
   .card-product {
     height: 90px !important;
@@ -63,11 +63,12 @@
 
 #messages {
   height: 75vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-left: 3em;
   padding-right: 3em;
   padding-top: 1em;
   background-image: image-url("cats-bg.png");
+  background-size: cover;
 }
 
 .chats-body {
