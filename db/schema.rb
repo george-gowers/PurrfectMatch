@@ -72,10 +72,10 @@ ActiveRecord::Schema.define(version: 2022_03_01_194043) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
-    t.string "gender"
+    t.string "gender" # need for search
     t.text "description"
-    t.string "breed"
-    t.string "location"
+    t.string "breed" # need for search
+    t.string "location" # need for search
     t.string "owner_name"
     t.text "owner_description"
     t.float "latitude"

@@ -1,23 +1,55 @@
-
-  <div class="user-cards">
-    <% @users.each do |user| %>
-      <div class="card mb-2">
-        <div class="card-block p-3">
-          <div class="users-photo">
-            <% if user.avatar.key.present? %>
-              <%= cl_image_tag user.avatar.key, class:"index-image", crop: :fill, gravity: 'auto' %>
-            <% else %>
-            <%= image_tag("no-photo.jpg", class:"index-image") %>
-            <% end %>
-          </div>
-          <% if user.name.present? %>
-            <strong><p class="card-title"><%= user.name %></p></strong>
-          <% else %>
-            <strong><p class="card-title">No name cat</p></strong>
-          <% end %>
-          <%= link_to 'Check out this Cat!', user, class: "btn cat-button" %>
-        </div>
-      </div>
+<div class="search-area">
+  <div class="mt-5 container d-flex justify-content-between">
+    <%= form_tag users_path, class: "d-flex align-items-center", method: :get do %>
+      <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type location"
+            %>
+      <label for="search">
+        <i class="fa fa-search search-icon"></i>
+      </label>
+      <%= submit_tag "Search", id: "search", class: "" %>
+    <% end %>
+    <%= form_tag users_path, class: "d-flex align-items-center", method: :get do %>
+      <%= select_tag "query", options_for_select(['Abyssinian', 'American Shorthair', 'British Shorthair', 'Bengal', 'Birman', 'Burmese', 'Cornish Rex', 'Devon Rex', 'Exotic Shorthair', 'Himalayan', 'Maine Coon', 'Norwegian Forest Cat', 'Ocicat', 'Oriental Shorthair', 'Persian', 'Ragdoll', 'Russian Blue', 'Scottish Fold', 'Siamese', 'Siberian', 'Sphynx', 'Tonkinese', 'other - but still fabulous']),class: "p-2" %>
+      <label for="search">
+        <i class="fa fa-search search-icon"></i>
+      </label>
+      <%= submit_tag "Search", id: "search", class: "" %>
+    <% end %>
+    <%= form_tag users_path, class: "d-flex align-items-center", method: :get do %>
+      <%= select_tag "query", options_for_select(['Female', 'Male']), class: "p-2" %>
+      <label for="search">
+        <i class="fa fa-search search-icon"></i>
+      </label>
+      <%= submit_tag "Search", id: "search", class: "" %>
     <% end %>
   </div>
+</div>
+<div class="user-cards">
+  <% @users.each do |user| %>
+    <div class="card mb-2">
+      <div class="card-block p-3">
+        <div class="users-photo">
+          <% if user.avatar.key.present? %>
+            <%= cl_image_tag user.avatar.key, class:"index-image", crop: :fill, gravity: 'auto' %>
+          <% else %>
+            <%= image_tag("no-photo.jpg", class:"index-image") %>
+          <% end %>
+        </div>
+        <% if user.name.present? %>
+          <strong>
+            <p class="card-title"><%= user.name %></p>
+          </strong>
+        <% else %>
+          <strong>
+            <p class="card-title">No name cat</p>
+          </strong>
+        <% end %>
+        <%= link_to 'Check out this Cat!', user, class: "btn cat-button" %>
+      </div>
+    </div>
+  <% end %>
+</div>
 </div>

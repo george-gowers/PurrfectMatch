@@ -8,8 +8,8 @@
       <% if user_signed_in? %>
         <li class="nav-item search_form">
           <%= form_tag users_path, class: "d-flex align-items-center", method: :get do %>
-            <%= text_field_tag :location,
-              params[:location],
+            <%= text_field_tag :query,
+              params[:query],
               class: "form-control",
               placeholder: "Type location"
             %>
