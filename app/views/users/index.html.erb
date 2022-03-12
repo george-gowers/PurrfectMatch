@@ -1,4 +1,4 @@
-
+<div class="cats-index px-5">
   <div class="user-cards">
     <% @users.each do |user| %>
       <div class="card mb-2">
@@ -13,11 +13,24 @@
           <% if user.name.present? %>
             <strong><p class="card-title"><%= user.name %></p></strong>
           <% else %>
-            <strong><p class="card-title">No name cat</p></strong>
+            <strong><p class="card-title">Unknown Cat</p></strong>
           <% end %>
           <%= link_to 'Check out this Cat!', user, class: "btn cat-button" %>
         </div>
       </div>
+    <% end %>
+  </div>
+  <div class="chats-bottom">
+    <%= link_to root_path do %>
+      <i class="fas fa-home"></i>
+    <% end %>
+
+    <%= link_to chatrooms_path do %>
+      <i class="fas fa-envelope"></i>
+    <% end %>
+
+    <%= link_to edit_user_registration_path do %>
+      <i class="fas fa-paw"></i>
     <% end %>
   </div>
 </div>
