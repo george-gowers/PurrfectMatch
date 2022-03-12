@@ -21,8 +21,6 @@ Rails.application.routes.draw do
       get :favorites
     end
   end
-  post 'subscribe', to: 'users#subscribe'
-  post 'unsubscribe', to: 'users#unsubscribe'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
