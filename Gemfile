@@ -67,5 +67,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'faker'
-gem 'sidekiq'
-gem 'sidekiq-failures', '~> 1.0'
+gem "letter_opener", :group => :development

@@ -21,13 +21,21 @@
       <p>Netherlands</p>
     </div>
     <div>
-      <ul>
-        <li><p>Subscribe!</p></li>
-        <form action="#" class="d-flex">
-          <input class="form-control form-control-lg" type="text" placeholder="email" aria-label=".form-control-lg example">
-          <button type="submit" class="btn btn-light mx-1">Subscribe</button>
-        </form>
-      </ul>
+      <% if user_signed_in? %>
+        <% unless user.subscribe %>
+          <p>Subscribe to receive weekly updates!</p>
+          <form action="/subscribe" class="d-flex" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <button type="submit" class="btn btn-light mx-1">Subscribe!</button>
+          </form>
+        <% else %>
+          <p>You no longer want to receive the updates?</p>
+          <form action="/unsubscribe" class="d-flex" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <button type="submit" class="btn btn-light mx-1">Unsubscribe!</button>
+          </form>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
