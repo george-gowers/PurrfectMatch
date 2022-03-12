@@ -50,3 +50,16 @@
     border-radius: 13px;
   }
 }
+
+.pending-info {
+  position: relative;
+  overflow: visible;
+}
+
+.fa-times-circle {
+  position: absolute;
+  color: black;
+  top: -5px;
+  right: -7px;
+  font-size: x-large;
+}
