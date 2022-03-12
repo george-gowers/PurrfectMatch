@@ -25,6 +25,9 @@
                   <p><i class="fas fa-venus"></i></p>
                 <% end %>
               <% end %>
+              <% if user.age.present? %>
+                <p><i class="fas fa-birthday-cake"></i> <%= user.age %></p>
+              <% end %>
             </div>
           </div>
         </div>
