@@ -18,14 +18,17 @@
     </div>
   </div>
 
+  <div class="button_box">
+  <span id="plus_button">Upload your pictures here!</span>
   <div class="pic-cards">
     <% @user.photos.each do |photo| %>
-      <div class="pic-card border p-3 overflow-hidden">
+      <div class="pic-card p-3 overflow-hidden">
         <%= cl_image_tag photo.key, class:"rounded" %>
       </div>
     <% end %>
-    <div class="pic-card border d-flex justify-content-start" data-controller="edit-owner">
-      <%= render 'photos_form' %>
+      <div class="pic-card d-flex justify-content-start" data-controller="edit-owner">
+        <%= render 'photos_form' %>
+      </div>
     </div>
   </div>
 </div>

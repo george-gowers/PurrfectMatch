@@ -121,7 +121,7 @@ input, textarea {
 }
 
 .pic-cards {
-  margin: 72px;
+  margin: 32px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -131,8 +131,10 @@ input, textarea {
   height: 120px;
   width: 180px;
   display: flex;
+  margin: 12px auto;
   align-items: center;
   justify-content: center;
+  border: 1px solid $creme;
   img {
     width: auto;
     height: 100%;
@@ -146,6 +148,20 @@ input, textarea {
 
 .hide-btn {
   visibility: hidden;
+}
+
+.button_box {
+  display: block;
+  text-align: center;
+  margin-top: 32px;
+}
+
+
+#plus_button {
+  font-family: 'Comforter', cursive;
+  font-weight: bold;
+  font-size: 48px;
+  color: $dark-pink;
 }
 
 .cat-info-form, .owner-info-form {
