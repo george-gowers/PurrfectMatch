@@ -33,28 +33,28 @@
         <i class="fas fa-cat cat-icon" title="Upload the profile picture"></i>
       <% end %>
     </div>
+  </div>
 
-    <% @chatroom = Chatroom.find_by(engager_id: current_user.id, receiver_id: params[:id]) %>
+  <% @chatroom = Chatroom.find_by(engager_id: current_user.id, receiver_id: params[:id]) %>
 
-    <% if @chatroom.nil? %>
-      <%= link_to like_user_path, method: :patch do %>
-        <div id="heart">
-          <i class="fas fa-duotone fa-heart"></i>
-        </div>
-      <% end %>
-    <% elsif @chatroom.pending? %>
-      <%= link_to dislike_user_path, method: :delete do %>
-        <div id="heart" class="liked">
-          <i class="fas fa-duotone fa-heart"></i>
-        </div>
-      <% end %>
-    <% else %>
-      <div id="heart" class="liked">
-          <i class="fas fa-duotone fa-heart"></i>
+  <% if @chatroom.nil? %>
+    <%= link_to like_user_path, method: :patch do %>
+      <div id="heart">
+        <i class="fas fa-duotone fa-heart"></i>
       </div>
     <% end %>
+  <% elsif @chatroom.pending? %>
+    <%= link_to dislike_user_path, method: :delete do %>
+      <div id="heart" class="liked">
+        <i class="fas fa-duotone fa-heart"></i>
+      </div>
+    <% end %>
+  <% else %>
+    <div id="heart" class="liked">
+        <i class="fas fa-duotone fa-heart"></i>
+    </div>
+  <% end %>
 
-  </div>
   <div>
     <div class="info_card">
       <div class="col-6 cat-info-form info-show">
