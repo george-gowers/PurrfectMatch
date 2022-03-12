@@ -72,7 +72,6 @@ class UsersController < ApplicationController
         @user.subscribe = true
         @user.save
 
-        # TODO REMOVE mailer variable
         mailer = UserMailer.new
         mailer.weekly_summary
 
