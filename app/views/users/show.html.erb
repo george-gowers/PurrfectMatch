@@ -24,7 +24,7 @@
     <%= image_tag("no-photo.jpg", class: "cat-banner", style: 'width:100%') %>
   <% end %>
 </div>
-<div class="container information">
+<div class="information" style="background-image: url('<%= image_path 'cats-bg.png' %>')">
   <div class="d-flex avatar-container">
     <div class="avatar" data-controller="edit-cat">
       <% if @user.avatar.key.present? %>
@@ -55,16 +55,25 @@
     <% end %>
 
   </div>
-  <div class="form-row">
-    <div class="col-6 cat-info-form info-show">
-      <p><b>Name: </b><%= @user.name %></p>
-      <p><b>Gender: </b><%= @user.gender %></p>
-      <p><b>Breed: </b><%= @user.breed %></p>
-      <p><b>Description: </b><%= @user.description %></p>
-    </div>
-    <div class="col-6 owner-info-form info-show">
-      <p><b>My human: </b><%= @user.owner_name %></p>
-      <p><b>A word from my human:: </b><%= @user.owner_description %></p>
+  <div>
+    <div class="info_card">
+      <div class="col-6 cat-info-form info-show">
+        <p><span class="pink_text">Name: </span><%= @user.name %></p>
+        <p><span class="pink_text">Age: </span><%= @user.age %></p>
+        <p><span class="pink_text">Gender: </span><%= @user.gender %></p>
+        <p><span class="pink_text">Breed: </span><%= @user.breed %></p>
+        <p><span class="pink_text">Description: </span><%= @user.description %></p>
+      </div>
+      <div class="col-6 owner-info-form info-show">
+        <p><span class="pink_text">My human: </span><%= @user.owner_name %></p>
+        <p><span class="pink_text">A word from my human:: </span><%= @user.owner_description %></p>
+      </div>
     </div>
   </div>
 </div>
+
+<style>
+body {
+  background-color: #F1EDE4 !important;
+}
+</style>

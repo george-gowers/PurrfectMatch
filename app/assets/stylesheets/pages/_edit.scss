@@ -1,32 +1,19 @@
-body {
-  background-color: $creme;
-}
-
-.container {
-  background-color: white;
-}
-
 .form-row {
   margin-top: 32px;
 }
 
-#heart {
-  margin-top: 32px;
-  margin-left: 16px;
-  text-align: center;
-  color: $pale-red;
-  font-weight: lighter;
-  font-size: 48px;
-  z-index: 9;
-}
-
-#heart .fa-heart {
-  transition: font-size 0.5s ease-out;
-}
-
-#heart .fa-heart:hover {
-  color: $red;
-  font-size: 72px;
+.information {
+  padding-bottom: 38px;
+  margin-top: -48px;
+  margin: -48px 32px 32px 24px;
+  z-index: 8;
+  .forms-edit {
+    p {
+      font-size: 18px;
+      color: $pink;
+      margin: 4px 0 16px 0;
+    }
+  }
 }
 
 .avatar-container {
@@ -41,8 +28,7 @@ body {
   border-radius: 50%;
   border-width: 1px;
   background-color: $pale-red;
-  margin: auto;
-  overflow: hidden;
+  margin: -90px auto;
 }
 
 .avatar_pic {
@@ -67,7 +53,7 @@ body {
 }
 
 .avatar-container {
-  margin-top: -100px;
+  margin-top: -116px;
 }
 
 .not-focused {
@@ -84,22 +70,17 @@ body {
   transition: -webkit-transform 2s ease;
   transition: transform 2s ease;
   transition: transform 2s ease, -webkit-transform 2s ease;
-}
-
-.information {
-  margin-bottom: 48px;
-  padding: 32px;
-  p {
-    font-size: 16px;
-  }
+  z-index: -1;
 }
 
 .edit_user {
-  margin: 16px 32px 48px 32px;
+  width: 70%;
+  margin: 16px 0 0 32px;
 }
 
 .edit_owner {
-  text-align: right;
+  width: 70%;
+  text-align: center;
 }
 
 .edit_user {
@@ -140,6 +121,7 @@ input, textarea {
 }
 
 .pic-cards {
+  margin: 72px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -158,9 +140,58 @@ input, textarea {
 }
 
 .fa-plus {
-  margin-top: 48px;
   margin-right: 32px;
   margin-left: -6px;
+}
+
+.hide-btn {
+  visibility: hidden;
+}
+
+.cat-info-form, .owner-info-form {
+  background-color: white;
+  width: 49%;
+  box-shadow: 0px 0px 10px $creme;
+  margin-top: 32px;
+  margin-bottom: 24px;
+  max-width: 40vw;
+}
+
+.cat-info-form {
+  padding: 64px 0 0 38px;
+  border-bottom-right-radius: 24px;
+  border-top-right-radius: 24px;
+  border-bottom-left-radius: 12px;
+  border-top-left-radius: 12px;
+  transition: all 0.4s ease-out;
+}
+
+.cat-info-form:hover {
+  box-shadow: -1em 1em .4em $creme;
+  transition: all 0.4s ease-in;
+}
+
+.owner-info-form {
+  padding: 64px 0 0 38px;
+  border-bottom-left-radius: 24px;
+  border-top-left-radius: 24px;
+  border-bottom-right-radius: 12px;
+  border-top-right-radius: 12px;
+  transition: all 0.6s ease-out;
+}
+
+.owner-info-form:hover {
+  box-shadow: 1em 1em .4em $creme;
+  transition: all 0.6s ease-in;
+}
+
+.avatar .edit_user {
+  margin: 16px 32px 48px 32px;
+}
+
+.info_card {
+  display: flex;
+  justify-content: center;
 }
 
 @media (min-width: 992px) {
@@ -170,6 +201,20 @@ input, textarea {
   }
 }
 
-.hide-btn {
-  visibility: hidden;
+@media (max-width: 988px) {
+  .info_card {
+    display: block;
+    .cat-info-form {
+      width: 90%;
+      max-width: 90vw;
+      padding: 24px 16px 24px 16px;
+      margin: 28px auto;
+    }
+    .owner-info-form {
+      width: 90%;
+      max-width: 90vw;
+      padding: 24px 16px 24px 16px;
+      margin: 28px auto;
+    }
+  }
 }
