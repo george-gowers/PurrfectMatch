@@ -21,7 +21,7 @@
       <%= yield %>
     </div>
 
-    <%= render 'shared/footer' %>
+    <%= render 'shared/footer', user: current_user %>
       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({
