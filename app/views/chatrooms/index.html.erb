@@ -69,7 +69,7 @@
             <p class="chats-paragraph" >Pending</p>
 
             <% @pending_sent_chats.each do |chatroom|%>
-              <div class="card-product my-2">
+              <div class="card-product pending-info my-2">
                 <%= link_to user_path(chatroom.receiver) do %>
                   <% if chatroom.receiver.avatar.key.present? %>
                     <%= cl_image_tag chatroom.receiver.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
@@ -77,7 +77,10 @@
                     <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
                   <% end %>
                 <% end %>
-                <div class="card-product-infos">
+                <div class="card-product-infos d-flex">
+                  <%= link_to chatroom_path(chatroom), method: :delete, data: { confirm: "Are you sure?" } do %>
+                    <i class="fas fa-times-circle"></i>
+                  <% end %>
                   <h2>your chat with <%= chatroom.receiver.name.empty? ? "Unknown Cat" : chatroom.receiver.name %> is still <strong>PENDING</strong></h2>
                 </div>
               </div>

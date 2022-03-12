@@ -28,8 +28,9 @@
 }
 
 .card.mb-2 {
-  box-shadow: 10px 5px 5px $creme ;
+  box-shadow: 1px 1px 5px rgba($color: #898989, $alpha: 0.1);
   margin: 0 16px 0 16px;
+  border-radius: 13px;
 }
 
 .index-image {
@@ -44,22 +45,7 @@
   margin: 56px 48px 56px 48px;
 }
 
-@media only screen and (min-width: 200px) {
-  .index-image {
-    height: 40vw;
-  }
-  .card-block.p-3 {
-    height: 62vw;
-  }
-}
-
 @media only screen and (min-width: 600px) {
-  .index-image {
-    height: 40vw;
-  }
-  .card-block.p-3 {
-   height: 60vw;
-  }
   .users-map-grid {
     display: grid;
     grid-gap: 10px;
@@ -73,41 +59,51 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .index-image {
-    height: 12vw;
-  }
-  .card-block.p-3 {
-    height: 30vw;
-  }
   .users-map-grid {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   .user-cards {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
-@media only screen and (min-width: 800px) {
-  .index-image {
-    height: 17vw;
+.fa-map-pin {
+  color: red;
+}
+
+.index-card-info {
+  i {
+    margin-left: 10px;
+    font-size: large;
   }
-  .card-block.p-3 {
-    height: 32vw;
+  .fa-mars {
+    color: rgb(123, 196, 255);
+  }
+  .fa-venus {
+    color: rgb(255, 165, 180);
+  }
+  .fa-birthday-cake {
+    color: rgb(253, 228, 0);
   }
 }
 
-@media only screen and (min-width: 1000px) {
-  .card-block.p-3 {
-    height: 30vw;
+.link-card {
+  text-decoration: none;
+  color: black;
+}
+
+.link-card:hover {
+  text-decoration: none;
+  color: black;
+  .card.mb-2 {
+    box-shadow: 1px 1px 5px rgba($color: #535353, $alpha: 0.5);
   }
 }
 
-@media only screen and (min-width: 1000px) {
-  .card-block.p-3 {
-    height: 28vw;
-  }
+.card-block.p-3 {
+  height: fit-content;
 }
