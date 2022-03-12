@@ -1,7 +1,7 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ['form', 'name', 'gender', 'breed', 'description', 'avatar', 'token'];
+  static targets = ['form', 'name', 'gender', 'breed', 'age', 'description', 'avatar', 'token'];
 
   displayNameField() {
     this.nameTarget.classList.remove('not-focused');
@@ -9,6 +9,10 @@ export default class extends Controller {
 
   displayGenderField() {
     this.genderTarget.classList.remove('not-focused');
+  }
+
+  displayAgeField() {
+    this.ageTarget.classList.remove('not-focused');
   }
 
   displayBreedField() {
