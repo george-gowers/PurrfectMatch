@@ -65,36 +65,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def subscribe
-    if user_signed_in?
-      @user = current_user
-      unless @user.subscribe
-        @user.subscribe = true
-        @user.save
-
-        mailer = UserMailer.new
-        mailer.weekly_summary
-
-        redirect_to edit_user_registration_path
-      end
-    end
-  end
-
-  def unsubscribe
-    if user_signed_in?
-      @user = current_user
-      if @user.subscribe
-        @user.subscribe = false
-        @user.save
-        redirect_to edit_user_registration_path
-      end
-    end
-  end
-
   private
 
   def user_params
-    params.require(:user).permit(:name, :gender, :breed, :description)
+    params.require(:user).permit(:name, :gender, :age, :breed, :description)
   end
 
   def avatar_params

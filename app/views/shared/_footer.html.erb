@@ -1,41 +1,26 @@
 <div class="footer">
-  <div>
-    <%= image_tag "PurrfectMatch-logo.jpg" %>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-      <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-      <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-      <li class="list-inline-item"><a href="#"><i class="fab fa-github"></i></a></li>
-    </ul>
-  </div>
+  <%= image_tag "PurrfectMatch-logo.jpg" %>
   <div class="d-flex justify-content-between">
-    <div id="foot-links">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Terms & Conditions</a>
-      <a href="#">Contact us</a>
+    <div class="col-4">
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+        <li class="list-inline-item"><a href="#"><i class="fab fa-github"></i></a></li>
+      </ul>
     </div>
-    <div>
-      <p>Le Wagon Amsterdam</p>
-      <p>Ijsbaanpad 9, 1076 CV, Amsterdam</p>
-      <p>Netherlands</p>
-    </div>
-    <div>
-      <% if user_signed_in? %>
-        <% unless user.subscribe %>
-          <p>Subscribe to receive weekly updates!</p>
-          <form action="/subscribe" class="d-flex" method="post">
-            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-            <button type="submit" class="btn btn-light mx-1">Subscribe!</button>
-          </form>
-        <% else %>
-          <p>You no longer want to receive the updates?</p>
-          <form action="/unsubscribe" class="d-flex" method="post">
-            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-            <button type="submit" class="btn btn-light mx-1">Unsubscribe!</button>
-          </form>
-        <% end %>
-      <% end %>
+    <div class="d-flex justify-content-around col-8">
+      <div id="foot-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact us</a>
+      </div>
+      <div>
+        <p>Le Wagon Amsterdam</p>
+        <p>Ijsbaanpad 9, 1076 CV</p>
+        <p>Amsterdam, Netherlands</p>
+      </div>
     </div>
   </div>
 </div>
