@@ -1,33 +1,40 @@
 <div data-controller="edit-owner">
   <%= render 'carousel' %>
 </div>
-<div class="container information">
+<div class="information" style="background-image: url('<%= image_path 'cats-bg.png' %>')">
   <div class="d-flex avatar-container">
-    <div class="avatar" data-controller="edit-cat">
+    <div class="avatar edit_avatar" data-controller="edit-cat">
       <%= render 'avatar_form' %>
     </div>
-
-    <div id="heart">
-      <i class="fas fa-duotone fa-heart"></i>
-    </div>
   </div>
-  <div class="form-row">
-    <div class="col-6 cat-info-form" data-controller="edit-cat">
-      <%= render 'cat_info_form' %>
-    </div>
-    <div class="col-6 owner-info-form" data-controller="edit-owner">
-      <%= render 'owner_info_form' %>
+  <div class="forms-edit">
+    <div class="info_card">
+      <div class="cat-info-form" data-controller="edit-cat">
+        <%= render 'cat_info_form' %>
+      </div>
+      <div class="owner-info-form" data-controller="edit-owner">
+        <%= render 'owner_info_form' %>
+      </div>
     </div>
   </div>
 
+  <div class="button_box">
+  <span id="plus_button">Upload your pictures here!</span>
   <div class="pic-cards">
     <% @user.photos.each do |photo| %>
-      <div class="pic-card border p-3 overflow-hidden">
+      <div class="pic-card p-3 overflow-hidden">
         <%= cl_image_tag photo.key, class:"rounded" %>
       </div>
     <% end %>
-    <div class="pic-card border d-flex justify-content-start" data-controller="edit-owner">
-      <%= render 'photos_form' %>
+      <div class="pic-card d-flex justify-content-start" data-controller="edit-owner">
+        <%= render 'photos_form' %>
+      </div>
     </div>
   </div>
 </div>
+
+<style>
+body {
+  background-color: #F1EDE4 !important;
+}
+</style>
