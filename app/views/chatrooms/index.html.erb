@@ -21,7 +21,7 @@
                       <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
                     <% end %>
                     <div class="card-product-infos">
-                      <h2>Have a chat with <%= chatroom.receiver.name.empty? ? "Unknown Cat": chatroom.receiver.name %> </h2>
+                      <h2>Have a chat with <%= chatroom.receiver.name = "" ? "Unknown Cat": chatroom.receiver.name %> </h2>
                     </div>
                   </div>
                 <% end %>
@@ -34,7 +34,7 @@
                       <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
                     <% end %>
                     <div class="card-product-infos">
-                      <h2>Have a chat with <%= chatroom.engager.name.empty? ? "Unknown Cat": chatroom.engager.name %></h2>
+                      <h2>Have a chat with <%= chatroom.engager.name = "" ? "Unknown Cat": chatroom.engager.name %></h2>
                     </div>
                   </div>
                 <% end %>
@@ -55,7 +55,7 @@
                   <% end %>
                 <% end %>
                 <div class="card-product-infos">
-                  <h2><%= chatroom.engager.name.empty? ? "Unknown Cat": chatroom.engager.name %> wants to chat</h2>
+                  <h2><%= chatroom.engager.name = "" ? "Unknown Cat": chatroom.engager.name %> wants to chat</h2>
                 </div>
                 <%= link_to "Accept", accept_chatroom_path(chatroom), class: "btn btn-a" %>
                 <%= link_to "Decline", chatroom_path(chatroom), class: "btn btn-d", data: { method: :delete } %>
