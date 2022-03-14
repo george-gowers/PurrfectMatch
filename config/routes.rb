@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       get :favorites
     end
   end
-
+  # if Rails.env.production?
+    get 'error', to: 'errors#page_not_found'
+  # end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
