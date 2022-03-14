@@ -1,0 +1,59 @@
+<div class="error_page">
+  <div class="error_page_container" style="background-image: url('<%= image_path 'cats-bg.png' %>')">
+    <h2>The Page You Requested Could Not Be Found</h2>
+    <%= image_tag("error.png", class: "error-banner", style: 'width:50%') %>
+    <div class="error-txt">
+      <span>We searched high and low but couldn't find what you're looking for. Let's find a better place for you to go.</span>
+    </div>
+    <div class="error-btn">
+      <%= link_to "Back To Homepage", root_path, class: "error-link" %>
+    </div>
+  </div>
+</div>
+
+<style>
+
+body {
+  background-color: #F1EDE4;
+  display: block;
+}
+
+span, h2 {
+  color: #61376C;
+  font-family: Verdana;
+}
+
+.error-txt, h2 {
+  padding: 54px 0 48px 0px;
+}
+
+.error-banner {
+  padding: 0 auto;
+}
+
+.error-link {
+  text-decoration: none;
+  padding: 16px;
+  border: solid 1px #61376C;
+  background-color: #61376C;
+  border-radius: 32px;
+  color: white;
+  font-family: Verdana;
+}
+
+.error-link:hover {
+  text-decoration: none;
+}
+
+.error-btn {
+  padding: 54px 0 54px 0px;
+}
+
+.error_page_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 54px 0 54px;
+}
+
+</style>
