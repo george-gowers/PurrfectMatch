@@ -13,9 +13,8 @@
   border-color: $pink;
   background-color: $pink;
   width: 75%;
-  .button_text {
-    color: white !important;
-  }
+  margin-bottom: 1em;
+  color: white;
 }
 
 .sign_up_button:hover, .login_button:hover {
@@ -23,23 +22,10 @@
   color: $pink;
   font-weight: bolder;
   background-color: white;
-  .button_text {
-    color: pink !important;
-  }
-}
-
-.button_text {
-  color: $pink;
-  font-weight: bolder;
-}
-
-.button_text:hover {
-  color: white;
-  font-weight: bolder;
 }
 
 .login {
-  background-image: linear-gradient(rgba($pale-red, .5), rgba($pale-red, .5)), image-url("kittens2.jpg") !important;
+  background-image: linear-gradient(rgba($pale-red, .2), rgba($pale-red, .2)), image-url("kitten.jpg") !important;
   background-position: center;
   background-size: cover;
   height: 75vh;
@@ -55,7 +41,7 @@
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 13px;
     margin-top: 50px;
-    height: 60vh;
+    height: fit-content;
   }
   input {
     border-radius: 13px;
@@ -79,7 +65,7 @@
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 13px;
     margin-top: 50px;
-    height: 65vh;
+    height: fit-content;
   }
   input {
     border-radius: 13px;

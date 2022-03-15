@@ -9,9 +9,9 @@
     <div class="col-8 d-flex align-items-center justify-content-start">
       <%= link_to user_path(other_user) do %>
         <% if other_user.avatar.key.present? %>
-          <%= cl_image_tag other_user.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
+          <%= cl_image_tag other_user.avatar.key, alt: 'Avatar', class:"rounded-circle", height: 160, width: 160, crop: :fill %>
         <% else %>
-          <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
+          <%= image_tag("no-pic-cat.png", class:"rounded-circle",height: 160, width: 160, crop: :fill ) %>
         <% end %>
       <% end %>
       <h1 class="chats-header mx-3"><%= other_user.name ? other_user.name : "Unknown Cat" %></h1>

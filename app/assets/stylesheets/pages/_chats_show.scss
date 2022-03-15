@@ -28,7 +28,7 @@
   padding: 5px;
   position: -webkit-sticky;
   position: sticky;
-  top: 88px;
+  top: 70px;
   background-color: white;
   z-index: 9;
 }
@@ -49,6 +49,7 @@
 }
 
 .chats-show {
+  margin-top: 0.5em;
   height: 75vh;
   overflow-y: auto;
   z-index: 0;

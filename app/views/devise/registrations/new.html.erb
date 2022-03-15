@@ -16,9 +16,7 @@
               required: true,
               input_html: { autocomplete: "new-password" } %>
         </div>
-        <div class="form-actions sign_up_button btn btn-outline-dark mb-3">
-          <%= f.button :submit, "Sign up", class: 'button_text' %>
-        </div>
+        <%= f.button :submit, "Sign up", class:"sign_up_button" %>
       <% end %>
       <p>Or</p>
       <%= render "devise/shared/links", class: "mb-3"  %>

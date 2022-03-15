@@ -3,10 +3,11 @@
   background: black;
   padding: 0em 3em 0em 3em;
   box-shadow: 1px 2px 5px rgba(0,0,0,.5);
-  height: 88px;
+  height: 70px;
   a {
     color: white;
-    font-size: 2.5em;
+    margin-top: 16px;
+    font-size: 30px;
   }
   .dropdown-menu a {
     color: gray;
@@ -20,8 +21,10 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 60%;
   margin-left: 1em;
+  position: absolute;
+  height: 100%;
+  top: 0px;
 }
 
 .nav-item {
@@ -31,7 +34,7 @@
 .search-icon {
   margin-top: 16px;
   margin-left: 16px;
-  font-size: 36px;
+  font-size: 30px;
   color: white;
 }
 
@@ -49,4 +52,11 @@
   font-size: 55%;
   right: 174px;
   top: 19px;
+}
+
+.navbar-avatar {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 50%;
 }
