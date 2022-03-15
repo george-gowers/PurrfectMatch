@@ -31,7 +31,8 @@
   box-shadow: 1px 1px 5px rgba($color: #898989, $alpha: 0.1);
   margin: 0 16px 0 16px;
   border-radius: 13px;
-  border: 1px solid $pale-red;
+  background-color: rgba($pale-red, $alpha: .5);
+  border: none;
 }
 
 .index-image {
@@ -102,7 +103,7 @@
   text-decoration: none;
   color: black;
   .card.mb-2 {
-    box-shadow: 1px 1px 5px rgba($pale-red, $alpha: 1);
+    box-shadow: 1px 1px 5px rgba(#0000, .3);
   }
 }
 
