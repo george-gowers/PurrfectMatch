@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     # end
     if params[:query].present?
       @users = User.search_by_gender_location_and_breed(params[:query])
+      @users = @users.reject { |n| n.gender == current_user.gender }
       @searched = true
     else
       @users = User.all
