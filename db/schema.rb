@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_12_151418) do
+ActiveRecord::Schema.define(version: 2022_03_15_180252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,8 +59,22 @@ ActiveRecord::Schema.define(version: 2022_03_12_151418) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "content"
+    t.boolean "seen", default: false
+    t.bigint "receiver_id"
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "read_marks", id: :serial, force: :cascade do |t|
+    t.string "readable_type", null: false
+    t.integer "readable_id"
+    t.string "reader_type", null: false
+    t.integer "reader_id"
+    t.datetime "timestamp"
+    t.index ["readable_type", "readable_id"], name: "index_read_marks_on_readable"
+    t.index ["reader_id", "reader_type", "readable_type", "readable_id"], name: "read_marks_reader_readable_index", unique: true
+    t.index ["reader_type", "reader_id"], name: "index_read_marks_on_reader"
   end
 
   create_table "users", force: :cascade do |t|

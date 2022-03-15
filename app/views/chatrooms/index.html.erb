@@ -10,6 +10,9 @@
       <div class="msgs-index">
         <div class="chats">
           <% unless @approved_chats.empty? %>
+          <% if Message.unread_by(current_user).count > 1 %>
+            <h1>unread messages</h1>
+          <% end %>
             <p class="chats-paragraph">Chats</p>
             <% @approved_chats.each do |chatroom|%>
               <% if current_user.id == chatroom.engager_id %>
@@ -23,6 +26,9 @@
                     <div class="card-product-infos">
                       <h2>Have a chat with <%= chatroom.receiver.name.nil? ? "Unknown Cat": chatroom.receiver.name %> </h2>
                     </div>
+                    <% if chatroom.messages.unread_by(current_user).count > 0 %>
+                      <h1>unread messages: <%= chatroom.messages.unread_by(current_user).count %> </h1>
+                    <% end %>
                   </div>
                 <% end %>
               <% else %>
@@ -36,6 +42,9 @@
                     <div class="card-product-infos">
                       <h2>Have a chat with <%= chatroom.engager.name.nil? ? "Unknown Cat": chatroom.engager.name %></h2>
                     </div>
+                  <% if chatroom.messages.unread_by(current_user).count > 0 %>
+                      <h1>unread messages: <%= chatroom.messages.unread_by(current_user).count %> </h1>
+                  <% end %>
                   </div>
                 <% end %>
               <% end %>
