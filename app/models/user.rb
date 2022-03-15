@@ -8,6 +8,8 @@ class User < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
+  validates :gender, presence: true
+
   include PgSearch::Model
   pg_search_scope :search_by_gender_location_and_breed,
     against: [ :gender, :location, :breed ],
