@@ -174,3 +174,9 @@ body {
 .contact-container {
   background-color: $pale-red;
 }
+
+@media only screen and (max-width: 600px) {
+  .off-bits {
+    display: none;
+  }
+}
