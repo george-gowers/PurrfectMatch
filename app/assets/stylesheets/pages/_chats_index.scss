@@ -1,6 +1,7 @@
 .chats-header {
   color: $pale-red;
   font-weight: bolder;
+  box-shadow: 1px ;
 }
 
 .chats-paragraph {
@@ -16,4 +17,49 @@
 .chats a:hover {
   text-decoration: none;
   color: black;
+}
+
+.msgs-index {
+  height: 75vh;
+  overflow-y: auto;
+}
+
+.msgs-container {
+  background-image: image-url("cats-bg.png");
+}
+
+.c-pending {
+  .card-product {
+    background-color: rgb(221, 221, 221) !important;
+  }
+}
+
+.msgs-index-none {
+  height: 60vh;
+  text-align: center;
+  .btn:hover {
+    color:pink;
+    background-color: white;
+    border: 1px solid pink;
+  }
+  .btn {
+    color:white;
+    background-color: pink;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 13px;
+  }
+}
+
+.pending-info {
+  position: relative;
+  overflow: visible;
+}
+
+.fa-times-circle {
+  position: absolute;
+  color: black;
+  top: -5px;
+  right: -7px;
+  font-size: x-large;
 }

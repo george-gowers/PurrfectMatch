@@ -1,27 +1,31 @@
-.login-image {
-  width: 100%;
-  object-fit: cover;
-  height: 300px;
-}
-
 .login-btn {
   font-family: 'Comforter', cursive;
   font-size: 64px;
-  color: $pink;
   font-weight: bolder;
+  color: white;
+  text-shadow: 2px 2px 5px hotpink;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .sign_up_button, .login_button {
-  border-color: $pink;
-  color: $pink;
-  font-weight: bolder;
-}
-
-.sign_up_button:hover, .login_button:hover {
-  color: white;
   font-weight: bolder;
   border-color: $pink;
   background-color: $pink;
+  width: 75%;
+  .button_text {
+    color: white !important;
+  }
+}
+
+.sign_up_button:hover, .login_button:hover {
+  border-color: $pink;
+  color: $pink;
+  font-weight: bolder;
+  background-color: white;
+  .button_text {
+    color: pink !important;
+  }
 }
 
 .button_text {
@@ -34,6 +38,50 @@
   font-weight: bolder;
 }
 
-.button_banner {
-  margin-top: 32px;
+.login {
+  background-image: linear-gradient(rgba($pale-red, .5), rgba($pale-red, .5)), image-url("kittens2.jpg") !important;
+  background-position: center;
+  background-size: cover;
+  height: 75vh;
+  text-align: center;
+  align-items: center;
+  .input-container {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 13px;
+    margin-top: 50px;
+    height: 60vh;
+  }
+  input {
+    border-radius: 13px;
+  }
+}
+
+#sign-up {
+  background-image: linear-gradient(rgba($pale-red, .2), rgba($pale-red, .2)), image-url("kitten.jpg") !important;
+  background-position: center;
+  background-size: cover;
+  height: 75vh;
+  text-align: center;
+  align-items: center;
+  .input-container {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 13px;
+    margin-top: 50px;
+    height: 65vh;
+  }
+  input {
+    border-radius: 13px;
+  }
 }

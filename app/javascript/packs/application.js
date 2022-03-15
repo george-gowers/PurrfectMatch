@@ -30,7 +30,7 @@ document.addEventListener('turbolinks:load', () => {
   var $item = $('.carousel-item');
   var $wHeight = $(window).height();
   $item.eq(0).addClass('active');
-  $item.height($wHeight * 0.65);
+  $item.height($wHeight * 0.7);
   $item.addClass('full-screen');
 
   $('.carousel img').each(function () {
@@ -45,7 +45,7 @@ document.addEventListener('turbolinks:load', () => {
 
   $(window).on('resize', function () {
     $wHeight = $(window).height();
-    $item.height($wHeight * 0.65);
+    $item.height($wHeight * 0.7);
   });
 
   $('.carousel').carousel({
@@ -62,4 +62,3 @@ document.addEventListener('turbolinks:load', () => {
   const addPhotos = document.querySelector("#add-btn");
 
   });
-

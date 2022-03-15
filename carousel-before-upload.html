@@ -1,14 +1,15 @@
 <div id="carousel">
-  <% if @user.photos.present? %>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
-        <% @user.photos.each_with_index do |photo, index| %>
-          <div class="carousel-item <%= index ==0? 'active' : "" %>">
-            <%= cl_image_tag photo.key, class: "d-block img-fluid w-100", crop: :lfill, width: 1000, height: 350 %>
+          <div class="carousel-item full-screen active" style="height: 449.8px; background-image: url(&quot;http://res.cloudinary.com/dpi4wsinj/image/upload/v1/development/f4ekepxilhbgr3nl20talp1tcv1y&quot;);">
+            
             <div class="carousel-caption d-md-block d-none"></div>
           </div>
-        <% end %>
+          <div class="carousel-item full-screen" style="height: 449.8px; background-image: url(&quot;http://res.cloudinary.com/dpi4wsinj/image/upload/v1/development/r7f37aij9bkei8cf1ret60re76s7&quot;);">
+            
+            <div class="carousel-caption d-md-block d-none"></div>
+          </div>
       </div>
       <!-- Controls -->
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -20,7 +21,4 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-  <% else %>
-    <%= image_tag("no-photo.jpg", class: "cat-banner", style: 'width:100%') %>
-  <% end %>
 </div>

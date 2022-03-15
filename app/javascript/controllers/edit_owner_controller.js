@@ -32,7 +32,6 @@ export default class extends Controller {
       })
   }
   uploadPhotos() {
-    console.log('uploadPhotos');
     let input = this.photosTarget.files;
     let photoFile = new FormData();
     for (let i = 0; i < input.length; i++) {
@@ -48,6 +47,28 @@ export default class extends Controller {
       .then(response => response.text())
       .then((data) => {
         document.getElementById('carousel').outerHTML = data;
+        var $item = $('.carousel-item');
+        var $wHeight = $(window).height();
+        $item.eq(0).addClass('active');
+        $item.height($wHeight * 0.65);
+        $item.addClass('full-screen');
+
+        $('.carousel img').each(function () {
+          var $src = $(this).attr('src');
+          var $color = $(this).attr('data-color');
+          $(this).parent().css({
+            'background-image': 'url(' + $src + ')',
+            'background-color': $color
+          });
+          $(this).remove();
+        });
+
+
+        $(window).off('resize');
+        $(window).on('resize', function () {
+          $wHeight = $(window).height();
+          $item.height($wHeight * 0.65);
+        });
       });
   }
 }

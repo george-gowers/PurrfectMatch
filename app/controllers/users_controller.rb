@@ -72,7 +72,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :gender, :breed, :description)
+    params.require(:user).permit(:name, :gender, :age, :breed, :description)
   end
 
   def avatar_params

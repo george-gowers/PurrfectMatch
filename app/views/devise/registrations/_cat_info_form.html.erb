@@ -2,6 +2,9 @@
   <p data-action="click->edit-cat#displayNameField">
     <b>Name: <%= f.text_field :name, 'data-edit-cat-target': 'name', class: 'not-focused', 'data-action': 'blur->edit-cat#update' %></b>
   </p>
+  <p data-action="click->edit-cat#displayAgeField">
+    <b>Age: <%= f.text_field :age, 'data-edit-cat-target': 'age', class: 'not-focused', 'data-action': 'blur->edit-cat#update' %></b>
+  </p>
   <p data-action="click->edit-cat#displayGenderField">
     <b>Gender: <%= select :user, :gender, ['female', 'male'], { include_blank: true }, 'data-edit-cat-target': 'gender', class: 'not-focused', 'data-action': 'blur->edit-cat#update' %></b>
   </p>
