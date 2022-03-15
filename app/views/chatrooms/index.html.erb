@@ -55,7 +55,7 @@
                   <% end %>
                 <% end %>
                 <div class="card-product-infos">
-                  <h2><%= chatroom.engager.name.empty? ? "Unknown Cat": chatroom.engager.name %> wants to chat</h2>
+                  <h2><%= chatroom.engager.name = "" ? "Unknown Cat": chatroom.engager.name %> wants to chat</h2>
                 </div>
                 <%= link_to "Accept", accept_chatroom_path(chatroom), class: "btn btn-a" %>
                 <%= link_to "Decline", chatroom_path(chatroom), class: "btn btn-d", data: { method: :delete } %>
