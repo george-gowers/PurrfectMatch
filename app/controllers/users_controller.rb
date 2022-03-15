@@ -1,16 +1,11 @@
 class UsersController < ApplicationController
   def index
-    # if params[:location].present?
-    #   @users = User.near(params[:location], 100)
-    # else
-    #   @users = User.where.not(id: current_user.id)
-    # end
     if params[:query].present?
       @users = User.search_by_gender_location_and_breed(params[:query])
       @users = @users.reject { |n| n.gender == current_user.gender }
       @searched = true
     else
-      @users = User.all
+      @users = User.where.not(id: current_user.id)
     end
     if params[:breed].present?
       @users = @users.select { |n| n.breed == params[:breed] }
