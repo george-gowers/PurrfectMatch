@@ -28,20 +28,18 @@
   background-image: linear-gradient(rgba($pale-red, .2), rgba($pale-red, .2)), image-url("kitten.jpg") !important;
   background-position: center;
   background-size: cover;
-  height: 75vh;
+  padding: 70px 0 70px 0;
+  min-height: 100vh;
   text-align: center;
   align-items: center;
   .input-container {
-    position: absolute;
     margin-left: auto;
     margin-right: auto;
-    left: 0;
-    right: 0;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 13px;
     margin-top: 50px;
-    height: fit-content;
+    height: 100%;
   }
   input {
     border-radius: 13px;
