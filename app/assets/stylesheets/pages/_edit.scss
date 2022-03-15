@@ -225,6 +225,10 @@ input, textarea {
   justify-content: center;
 }
 
+.msg-fix {
+  width: 75%;
+}
+
 @media (min-width: 992px) {
   .pic-cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;

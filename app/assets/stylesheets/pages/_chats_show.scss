@@ -3,18 +3,11 @@
   justify-content: center;
 }
 
-.msg-input{
-  width: 700px !important;
-  height: 40px !important;
-  margin-left: 16px;
-  margin-right:16px;
-}
-
 .msg-submit{
   background-color: #FF9E9E !important;
   color:white;
-  height: 20%;
-  width: 10%;
+  margin-bottom: 1rem;
+  height: 48px;
 }
 
 .chats-top {
@@ -50,7 +43,6 @@
 
 .chats-show {
   margin-top: 0.5em;
-  height: 75vh;
   overflow-y: auto;
   z-index: 0;
   .card-product {
@@ -64,7 +56,6 @@
 }
 
 #messages {
-  height: 75vh;
   overflow-y: auto;
   padding-left: 3em;
   padding-right: 3em;
@@ -83,7 +74,7 @@
   position: sticky;
   bottom: 0px;
   background-color: white;
-  margin-top: 5px;
+  margin-top: -5px;
   padding: 1em;
   display: flex;
   justify-content: space-evenly;
@@ -94,5 +85,39 @@
   a:hover {
     text-decoration: none;
     text-shadow: 1px 2px 5px $pale-red;
+  }
+}
+
+.txt-icons {
+  padding: 0 80px 0 80px;
+}
+
+.txt-area {
+  width: 100%;
+}
+
+textarea.form-control {
+  height: 48px;
+}
+
+.avatar-list {
+  margin-bottom: 32px;
+}
+
+@media (max-width: 850px) {
+  .chats-show {
+    .card-product {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+@media (max-width: 750px) {
+  .chats-show {
+    .card-product-infos.mx-3 {
+      p {
+        display: none;
+      }
+    }
   }
 }
