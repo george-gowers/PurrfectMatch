@@ -6,57 +6,51 @@
       <div class="centered-btn"><button><%= link_to "Create Account", new_user_registration_path, class: "btn bg-white centered-btn rounded-pill" %></button></div>
     <% end %>
   </div>
-  <section id="banner">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm cntr">
-          <h1><span id="banner-typed-text"></span></h1>
-          <%= link_to "Let's Begin!", user_session_path, class: "btn-beg"  %>
-        </div>
-        <div class="col-sm">
-          <%= image_tag "cat-love3.png", width: 350 %>
+  <div class="off-bits">
+    <div class="d-flex bits">
+      <div class="info-bits card text-center">
+        <%= image_tag "couple.png", class:"card-img-top" %>
+        <div class="card-body">
+          <p class="card-text">Find a loving partner for your cat</p>
         </div>
       </div>
-    </div>
-  </section>
-  <section id="info">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm">
-          <%= image_tag "catlove2.jpg", width: 450, class: "rounded-img p-3 m-3" %>
+      <div class="info-bits card text-center">
+        <%= image_tag "profile.png", class:"card-img-top" %>
+        <div class="card-body">
+          <p class="card-text">Detailed profiles</p>
         </div>
-        <div class="col-sm">
-          <h4 class="mt-4" data-aos="fade-up">How Purrfectmatch works?</h4>
-          <div id="content" data-aos="fade-down">All you need is to create a profile, search and message! It is that simple! Become one of our Purrfectmatch Family! For more information you can always contact us below.</div>
-          <div class="info-board">
-            <div class="board-items p-2">
-              <i class="fas fa-sign-in-alt fa-2x mr-3"></i>
-              <p class="font-weight-bold">Sign-up.</p>
-            </div>
-            <div class="board-items p-2">
-              <i class="fas fa-search fa-2x mr-3"></i>
-              <p class="font-weight-bold">Search.</p>
-            </div>
-            <div class="board-items p-2">
-              <i class="fas fa-comment fa-2x mr-3"></i>
-              <p class="font-weight-bold">Message.</p>
-            </div>
-          </div>
+      </div>
+      <div class="info-bits card text-center">
+        <%= image_tag "filters.png", class:"card-img-top" %>
+        <div class="card-body">
+          <p class="card-text">Search by breed, gender and geolocation</p>
         </div>
       </div>
     </div>
   </div>
-</section>
-<div class="contact-clean">
-  <form action="https://formcarry.com/s/wnHunL6STDg" method="POST" accept-charset="UTF-8" >
-    <h2 class="text-center mt-3">Contact us</h2>
-    <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name"></div>
-    <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-    <div class="form-group">
-      <textarea class="form-control" name="message" placeholder="Message" rows="5"></textarea>
+  <section id="banner" class="container">
+    <div class="row">
+      <div class="col-sm cntr">
+        <h1><span id="banner-typed-text"></span></h1>
+        <%= link_to "Let's Begin!", user_session_path, class: "btn-beg"  %>
+      </div>
+      <div class="col-sm">
+        <%= image_tag "cat-love3.png", width: 350 %>
+      </div>
     </div>
-    <div class="form-group"><button class="btn submit_button w-100" type="submit">Submit</button></div>
-    <input type="hidden" name="_gotcha">
-  </form>
-</div>
+  </section>
+  <div class="contact-container">
+    <div class="contact-clean">
+      <form action="https://formcarry.com/s/wnHunL6STDg" method="POST" accept-charset="UTF-8" >
+        <h2 class="text-center mt-3">Meow us!</h2>
+        <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name"></div>
+        <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+        <div class="form-group">
+          <textarea class="form-control" name="message" placeholder="Message" rows="5"></textarea>
+        </div>
+        <div class="form-group"><button class="btn submit_button w-50" type="submit">Submit</button></div>
+        <input type="hidden" name="_gotcha">
+      </form>
+    </div>
+  </div>
 </div>
