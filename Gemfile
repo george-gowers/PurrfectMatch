@@ -23,6 +23,7 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'cloudinary', '~> 1.16.0'
 gem 'stimulus-rails'
+gem 'pg_search'
 
 
 # Use Active Storage variant

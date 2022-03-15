@@ -1,4 +1,18 @@
 <div class="cats-index px-5">
+  <div class="search-area">
+    <div class="mt-5 container">
+      <%= form_tag users_path, class: "d-flex justify-content-center", method: :get do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "w-25 btn btn-outline-dark p-2 ml-4",
+              placeholder: "Amsterdam"
+            %>
+        <%= select_tag :breed, options_for_select(['Abyssinian', 'American Shorthair', 'British Shorthair', 'Bengal', 'Birman', 'Burmese', 'Cornish Rex', 'Devon Rex', 'Exotic Shorthair', 'Himalayan', 'Maine Coon', 'Norwegian Forest Cat', 'Ocicat', 'Oriental Shorthair', 'Persian', 'Ragdoll', 'Russian Blue', 'Scottish Fold', 'Siamese', 'Siberian', 'Sphynx', 'Tonkinese', 'other - but still fabulous']),class: "p-2 ml-4" %>
+        <%= select_tag :gender, options_for_select(['Female', 'Male']), class: "p-2 ml-4" %>
+        <%= submit_tag "Search", id: "search", class: "btn btn-outline-dark p-2 ml-4" %>
+      <% end %>
+    </div>
+  </div>
   <div class="user-cards">
     <% @users.each do |user| %>
       <%= link_to user_path(user), class:"link-card" do %>
