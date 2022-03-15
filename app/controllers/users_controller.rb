@@ -7,8 +7,12 @@ class UsersController < ApplicationController
     # end
     if params[:query].present?
       @users = User.search_by_gender_location_and_breed(params[:query])
+      @searched = true
     else
       @users = User.all
+    end
+    if params[:breed].present?
+      @users = @users.select { |n| n.breed == params[:breed] }
     end
   end
 
