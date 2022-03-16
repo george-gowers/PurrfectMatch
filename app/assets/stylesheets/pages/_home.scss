@@ -5,6 +5,9 @@ body {
 
 .bg-white {
   background-color: white;
+  h3 {
+    color: gray;
+  }
 }
 
 .bg {
@@ -12,6 +15,7 @@ body {
   background-position: center;
   background-size: cover;
   height: 75vh;
+  position: relative;
 }
 
 .centered-btn {
@@ -164,9 +168,8 @@ body {
 }
 
 .info-bits {
-  width: 30%;
-  margin-right: 7%;
-  margin-left: 7%;
+  margin-right: 3%;
+  margin-left: 3%;
 
   img {
     width: 50%;
@@ -181,9 +184,42 @@ body {
   background-color: $pale-red;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .off-bits {
     display: none;
+  }
+}
+
+.team-container {
+  background-image: image-url("brushed-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.team {
+  padding-top: 5em;
+  padding-bottom: 5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1em;
+  }
+  color: gray;
+  h4 {
+    color: black;
+  }
+  .person {
+    text-align: center;
+  }
+  i {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    color: black;
   }
 }
 
