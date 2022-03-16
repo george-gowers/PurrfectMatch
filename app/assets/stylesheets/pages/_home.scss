@@ -3,7 +3,7 @@ body {
   background-color: white !important;
 }
 
-.bg-white{
+.bg-white {
   background-color: white;
   h3 {
     color: gray;
@@ -20,7 +20,7 @@ body {
 
 .centered-btn {
   position: absolute;
-  top: 50%;
+  top: 186px;
   left: 50%;
   transform: translate(-50%, -50%);
   width:200px;
@@ -97,6 +97,8 @@ body {
   outline: 0 !important;
 }
 
+
+
 @media only screen and (max-width: 600px) {
 
   .centered-btn {
@@ -128,6 +130,7 @@ body {
   transition-duration: 1s;
   border-radius: 13px;
   margin-top: 5px;
+  width: 155px;
 }
 
 .btn-beg:hover{
@@ -136,6 +139,9 @@ body {
   color:white
 }
 
+.purrfect-container {
+  display: flex;
+}
 
 @keyframes btn-beg {
   0% {
@@ -214,5 +220,17 @@ body {
     margin-right: 0.5em;
     margin-left: 0.5em;
     color: black;
+  }
+}
+
+@media (max-width: 1050px) {
+  #purrfect-txt {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 780px) {
+  #purrfect-txt {
+    font-size: 1rem;
   }
 }
