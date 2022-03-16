@@ -4,7 +4,6 @@
     <div class="mt-5 container">
       <%= form_tag users_path, class: "d-flex justify-content-center", method: :get do %>
         <%= select_tag :breed, options_for_select(['Abyssinian', 'American Shorthair', 'British Shorthair', 'Bengal', 'Birman', 'Burmese', 'Cornish Rex', 'Devon Rex', 'Exotic Shorthair', 'Himalayan', 'Maine Coon', 'Norwegian Forest Cat', 'Ocicat', 'Oriental Shorthair', 'Persian', 'Ragdoll', 'Russian Blue', 'Scottish Fold', 'Siamese', 'Siberian', 'Sphynx', 'Tonkinese', 'other - but still fabulous']), :prompt => "Breed", class: "p-2 ml-4" %>
-        <%= select_tag :gender, options_for_select(['Female', 'Male']), :prompt => "Sex", class: "p-2 ml-4" %>
         <%= submit_tag "Search", id: "search", class: "btn btn-outline-dark p-2 ml-4" %>
       <% end %>
     </div>
@@ -49,11 +48,9 @@
     <%= link_to root_path do %>
       <i class="fas fa-home"></i>
     <% end %>
-
     <%= link_to chatrooms_path do %>
       <i class="fas fa-envelope"></i>
     <% end %>
-
     <%= link_to edit_user_registration_path do %>
       <i class="fas fa-paw"></i>
     <% end %>
@@ -69,7 +66,6 @@
               class: "w-25 btn btn-outline-dark p-2 ml-4",
               placeholder: "Amsterdam"
             %>
-        <%= select_tag :gender, options_for_select(['Female', 'Male']), :prompt => "Sex", class: "p-2 ml-4" %>
         <%= submit_tag "Search", id: "search", class: "btn btn-outline-dark p-2 ml-4" %>
       <% end %>
     </div>
