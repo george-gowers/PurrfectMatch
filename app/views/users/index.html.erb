@@ -1,125 +1,117 @@
-<% if @searched == true  %>
 <div class="cats-index px-5">
-  <div class="search-area">
-    <div class="mt-5 container">
-      <%= form_tag users_path, class: "d-flex justify-content-center", method: :get do %>
-        <%= select_tag :breed, options_for_select(['Abyssinian', 'American Shorthair', 'British Shorthair', 'Bengal', 'Birman', 'Burmese', 'Cornish Rex', 'Devon Rex', 'Exotic Shorthair', 'Himalayan', 'Maine Coon', 'Norwegian Forest Cat', 'Ocicat', 'Oriental Shorthair', 'Persian', 'Ragdoll', 'Russian Blue', 'Scottish Fold', 'Siamese', 'Siberian', 'Sphynx', 'Tonkinese', 'other - but still fabulous']), :prompt => "Breed", class: "p-2 ml-4" %>
-        <%= submit_tag "Search", id: "search", class: "btn btn-outline-dark p-2 ml-4" %>
-      <% end %>
+ <% if @searched == true  %>
+    <div class="search-area">
+      <div class="mt-5 container">
+        <%= form_tag users_path, class: "d-flex justify-content-center", method: :get do %>
+          <%= select_tag :breed, options_for_select(['Abyssinian', 'American Shorthair', 'British Shorthair', 'Bengal', 'Birman', 'Burmese', 'Cornish Rex', 'Devon Rex', 'Exotic Shorthair', 'Himalayan', 'Maine Coon', 'Norwegian Forest Cat', 'Ocicat', 'Oriental Shorthair', 'Persian', 'Ragdoll', 'Russian Blue', 'Scottish Fold', 'Siamese', 'Siberian', 'Sphynx', 'Tonkinese', 'other - but still fabulous']), :prompt => "Breed", class: "p-2 ml-4" %>
+          <%= submit_tag "Search", id: "search", class: "btn btn-outline-dark p-2 ml-4" %>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <h1 class="chats-header mt-5 text-center">Cats (<%= @users.count %>)</h1>
-  <div class="user-cards">
-    <% @users.each do |user| %>
-      <%= link_to user_path(user), class:"link-card" do %>
-        <div class="card mb-2">
-          <div class="card-block p-3">
-            <div class="users-photo">
-              <% if user.avatar.key.present? %>
-                <%= cl_image_tag user.avatar.key, class:"index-image", crop: :fill, gravity: 'auto' %>
-              <% else %>
-              <%= image_tag("no-photo.jpg", class:"index-image") %>
-              <% end %>
-            </div>
-            <% if user.name.present? %>
-              <strong><p class="card-title"><%= user.name %></p></strong>
-            <% else %>
-              <strong><p class="card-title">Unknown Cat</p></strong>
-            <% end %>
-            <div class="d-flex index-card-info">
-              <p><i class="fas fa-map-pin"></i> <%= user.location.present? ? user.location : "Planet Earth" %></p>
-              <% if user.gender.present? %>
-                <% if user.gender == 'male' %>
-                  <p><i class="fas fa-mars"></i></p>
+    <h1 class="chats-header mt-5 text-center">Cats (<%= @users.count %>)</h1>
+    <div class="user-cards">
+      <% @users.each do |user| %>
+        <%= link_to user_path(user), class:"link-card" do %>
+          <div class="card mb-2">
+            <div class="card-block p-3">
+              <div class="users-photo">
+                <% if user.avatar.key.present? %>
+                  <%= cl_image_tag user.avatar.key, class:"index-image", crop: :fill, gravity: 'auto' %>
                 <% else %>
-                  <p><i class="fas fa-venus"></i></p>
+                <%= image_tag("no-photo.jpg", class:"index-image") %>
                 <% end %>
+              </div>
+              <% if user.name.present? %>
+                <strong><p class="card-title"><%= user.name %></p></strong>
+              <% else %>
+                <strong><p class="card-title">Unknown Cat</p></strong>
               <% end %>
-              <% if user.age.present? %>
-                <p><i class="fas fa-birthday-cake"></i> <%= user.age %></p>
-              <% end %>
+              <div class="d-flex index-card-info">
+                <p><i class="fas fa-map-pin"></i> <%= user.location.present? ? user.location : "Planet Earth" %></p>
+                <% if user.gender.present? %>
+                  <% if user.gender == 'male' %>
+                    <p><i class="fas fa-mars"></i></p>
+                  <% else %>
+                    <p><i class="fas fa-venus"></i></p>
+                  <% end %>
+                <% end %>
+                <% if user.age.present? %>
+                  <p><i class="fas fa-birthday-cake"></i> <%= user.age %></p>
+                <% end %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="chats-bottom">
-    <%= link_to root_path do %>
-      <i class="fas fa-home"></i>
-    <% end %>
-    <%= link_to chatrooms_path do %>
-      <i class="fas fa-envelope"></i>
-    <% end %>
-    <%= link_to edit_user_registration_path do %>
-      <i class="fas fa-paw"></i>
-    <% end %>
-  </div>
-</div>
-<% else  %>
-<div class="cats-index px-5">
-  <div class="search-area">
-    <div class="mt-5 container">
-      <%= form_tag users_path, class: "d-flex justify-content-center", method: :get do %>
-        <%= text_field_tag :query,
-              params[:query],
-              class: "w-25 btn btn-outline-dark p-2 ml-4",
-              placeholder: "Amsterdam"
-            %>
-        <%= submit_tag "Search", id: "search", class: "btn btn-outline-dark p-2 ml-4" %>
       <% end %>
     </div>
-  </div>
-  <h1 class="chats-header mt-5 text-center">Cats (<%= @users.count %>)</h1>
-  <div class="user-cards">
-    <% @users.each do |user| %>
-      <%= link_to user_path(user), class:"link-card" do %>
-        <div class="card mb-2">
-          <div class="card-block p-3">
-            <div class="users-photo">
-              <% if user.avatar.key.present? %>
-                <%= cl_image_tag user.avatar.key, class:"index-image", crop: :fill, gravity: 'auto' %>
-              <% else %>
-              <%= image_tag("no-photo.jpg", class:"index-image") %>
-              <% end %>
-            </div>
-            <% if user.name.present? %>
-              <strong><p class="card-title"><%= user.name %></p></strong>
-            <% else %>
-              <strong><p class="card-title">Unknown Cat</p></strong>
-            <% end %>
-            <div class="d-flex index-card-info">
-              <p><i class="fas fa-map-pin"></i> <%= user.location.present? ? user.location : "Planet Earth" %></p>
-              <% if user.gender.present? %>
-                <% if user.gender == 'male' %>
-                  <p><i class="fas fa-mars"></i></p>
+  <% else  %>
+    <div class="search-area">
+      <div class="mt-5 container">
+        <%= form_tag users_path, class: "d-flex justify-content-center", method: :get do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "w-25 btn btn-outline-dark p-2 ml-4",
+                placeholder: "Amsterdam"
+              %>
+          <%= submit_tag "Search", id: "search", class: "btn btn-outline-dark p-2 ml-4" %>
+        <% end %>
+      </div>
+    </div>
+    <h1 class="chats-header mt-5 text-center">Cats (<%= @users.count %>)</h1>
+    <div class="user-cards">
+      <% @users.each do |user| %>
+        <%= link_to user_path(user), class:"link-card" do %>
+          <div class="card mb-2">
+            <div class="card-block p-3">
+              <div class="users-photo">
+                <% if user.avatar.key.present? %>
+                  <%= cl_image_tag user.avatar.key, class:"index-image", crop: :fill, gravity: 'auto' %>
                 <% else %>
-                  <p><i class="fas fa-venus"></i></p>
+                <%= image_tag("no-photo.jpg", class:"index-image") %>
                 <% end %>
+              </div>
+              <% if user.name.present? %>
+                <strong><p class="card-title"><%= user.name %></p></strong>
+              <% else %>
+                <strong><p class="card-title">Unknown Cat</p></strong>
               <% end %>
-              <% if user.age.present? %>
-                <p><i class="fas fa-birthday-cake"></i> <%= user.age %></p>
-              <% end %>
+              <div class="d-flex index-card-info">
+                <p><i class="fas fa-map-pin"></i> <%= user.location.present? ? user.location : "Planet Earth" %></p>
+                <% if user.gender.present? %>
+                  <% if user.gender == 'male' %>
+                    <p><i class="fas fa-mars"></i></p>
+                  <% else %>
+                    <p><i class="fas fa-venus"></i></p>
+                  <% end %>
+                <% end %>
+                <% if user.age.present? %>
+                  <p><i class="fas fa-birthday-cake"></i> <%= user.age %></p>
+                <% end %>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <div class="chats-bottom">
-    <%= link_to root_path do %>
-      <i class="fas fa-home"></i>
-    <% end %>
+    </div>
+  <% end %>
+  <% if @users.empty? %>
+    <div class="chats-bottom back">
+      <%= link_to users_path do %>
+        <i class="fas fa-undo"></i>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="chats-bottom">
+      <%= link_to root_path do %>
+        <i class="fas fa-home"></i>
+      <% end %>
 
-    <%= link_to chatrooms_path do %>
-      <i class="fas fa-envelope"></i>
-    <% end %>
+      <%= link_to chatrooms_path do %>
+        <i class="fas fa-envelope"></i>
+      <% end %>
 
-    <%= link_to edit_user_registration_path do %>
-      <i class="fas fa-paw"></i>
-    <% end %>
-  </div>
+      <%= link_to edit_user_registration_path do %>
+        <i class="fas fa-paw"></i>
+      <% end %>
+    </div>
+  <% end %>
 </div>
-
-
-<% end %>
