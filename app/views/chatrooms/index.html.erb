@@ -27,7 +27,7 @@
                       <h2>Have a chat with <%= chatroom.receiver.name.nil? ? "Unknown Cat": chatroom.receiver.name %> </h2>
                     </div>
                     <% if chatroom.messages.unread_by(current_user).count > 0 %>
-                      <h1>unread messages: <%= chatroom.messages.unread_by(current_user).count %> </h1>
+                      <i class="fas fa-comment-alt message-icon"></i>
                     <% end %>
                   </div>
                 <% end %>
@@ -43,7 +43,7 @@
                       <h2>Have a chat with <%= chatroom.engager.name.nil? ? "Unknown Cat": chatroom.engager.name %></h2>
                     </div>
                   <% if chatroom.messages.unread_by(current_user).count > 0 %>
-                      <h1>unread messages: <%= chatroom.messages.unread_by(current_user).count %> </h1>
+                      <i class="fas fa-comment-alt message-icon"></i>
                   <% end %>
                   </div>
                 <% end %>
