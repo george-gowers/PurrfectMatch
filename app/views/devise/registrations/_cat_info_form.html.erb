@@ -5,8 +5,8 @@
   <p data-action="click->edit-cat#displayAgeField">
     <b>Age: <%= f.text_field :age, 'data-edit-cat-target': 'age', class: 'not-focused', 'data-action': 'blur->edit-cat#update' %></b>
   </p>
-  <p data-action="click->edit-cat#displayGenderField">
-    <b>Gender: <%= select :user, :gender, ['female', 'male'], { include_blank: true }, 'data-edit-cat-target': 'gender', class: 'not-focused', 'data-action': 'blur->edit-cat#update' %></b>
+  <p>
+    <b>Gender: <%= @user.gender %></b>
   </p>
   <p data-action="click->edit-cat#displayBreedField">
     <b>Breed: <%= select :user, :breed, ['Abyssinian', 'American Shorthair', 'British Shorthair', 'Bengal', 'Birman', 'Burmese', 'Cornish Rex', 'Devon Rex', 'Exotic Shorthair', 'Himalayan', 'Maine Coon', 'Norwegian Forest Cat', 'Ocicat', 'Oriental Shorthair', 'Persian', 'Ragdoll', 'Russian Blue', 'Scottish Fold', 'Siamese', 'Siberian', 'Sphynx', 'Tonkinese', 'other - but still fabulous'], { include_blank: true }, 'data-edit-cat-target': 'breed', 'data-action': 'blur->edit-cat#update' %></b>

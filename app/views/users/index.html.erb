@@ -1,5 +1,5 @@
 <div class="cats-index px-5">
-  <% if @searched == true  %>
+ <% if @searched == true  %>
     <div class="search-area">
       <div class="mt-5 container">
         <%= form_tag users_path, class: "d-flex justify-content-center", method: :get do %>
@@ -41,7 +41,6 @@
               </div>
             </div>
           </div>
-        <% end %>
       <% end %>
     </div>
   <% else  %>

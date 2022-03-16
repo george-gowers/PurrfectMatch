@@ -26,14 +26,12 @@ class UsersController < ApplicationController
   def dislike
     @chatroom = Chatroom.find_by(engager_id: current_user.id, receiver_id: params[:id])
     @chatroom.destroy
-
     redirect_to user_path
   end
 
   def favorites
     fave_chats = Chatroom.where(engager_id: current_user.id)
     @favorites = []
-
     fave_chats.each do |chat|
       other_id = chat.receiver_id
       @favorites << User.find(other_id)
@@ -63,10 +61,6 @@ class UsersController < ApplicationController
         format.text { render partial: 'devise/registrations/cat_info_form', locals: { user: @user }, formats: [:html] }
       end
     end
-  end
-
-  def show
-    @user = User.find(params[:id])
   end
 
   private
