@@ -1,4 +1,7 @@
 class ChatroomsController < ApplicationController
+
+  # after_action :read, only: [:show]
+
   def index
     @pending_incoming_chats = Chatroom.pending_incoming_chats(current_user)
     @pending_sent_chats = Chatroom.pending_sent_chats(current_user)
@@ -12,6 +15,9 @@ class ChatroomsController < ApplicationController
       @message = Message.new
       @approved_chats = @approved_chats = Chatroom.approved_chats(current_user)
       @chatroom = chat
+      @chatroom.messages.each do |message|
+        message.mark_as_read! for: current_user
+      end
     else
       redirect_to chatrooms_path
     end
@@ -30,6 +36,14 @@ class ChatroomsController < ApplicationController
     @chatroom.save
     redirect_to chatrooms_path
   end
+
+  # def read
+  #   # raise
+  #   chat = Chatroom.find(params[:id])
+  #   chat.messages.each do |message|
+  #     message.mark_as_read! for: current_user
+  #   end
+  # end
 
   private
 
