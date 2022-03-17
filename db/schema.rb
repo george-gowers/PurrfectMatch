@@ -59,10 +59,7 @@ ActiveRecord::Schema.define(version: 2022_03_15_180252) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "content"
-    t.boolean "seen", default: false
-    t.bigint "receiver_id"
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
-    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 

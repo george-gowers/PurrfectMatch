@@ -17,7 +17,7 @@
             <% @approved_chats.each do |chatroom|%>
               <% if current_user.id == chatroom.engager_id %>
                 <%= link_to chatroom_path(chatroom) do %>
-                  <div class="card-product my-2">
+                  <div class="card-product my-2 ">
                     <% if chatroom.receiver.avatar.key.present? %>
                       <%= cl_image_tag chatroom.receiver.avatar.key, alt: 'Avatar', class: 'avatar_pic', height: 160, width: 160, crop: :fill %>
                     <% else %>
