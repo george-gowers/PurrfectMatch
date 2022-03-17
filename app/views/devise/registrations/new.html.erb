@@ -15,7 +15,7 @@
         <%= f.input :password_confirmation,
               required: true,
               input_html: { autocomplete: "new-password" } %>
-          <%= f.input :gender, as: :radio_buttons, collection: ['male', 'female'] %>
+          <%= f.input :gender, as: :radio_buttons, collection: ['male', 'female'], label: "Pet's Gender" %>
       </div>
       <%= f.button :submit, "Sign up", class:"sign_up_button" %>
     <% end %>
