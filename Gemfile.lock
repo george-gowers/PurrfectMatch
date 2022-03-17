@@ -252,6 +252,8 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8)
+    unread (0.11.0)
+      activerecord (>= 3)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -309,6 +311,7 @@ DEPENDENCIES
   stimulus-rails
   turbolinks (~> 5)
   tzinfo-data
+  unread
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)

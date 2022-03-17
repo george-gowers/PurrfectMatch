@@ -23,9 +23,11 @@
           <%= link_to chatrooms_path, class: "navbar-link" do %>
           <div>
             <i class="fas fa-envelope"></i>
-            <% if Chatroom.pending_incoming_chats(current_user).count > 0 %>
-              <i class="fas fa-circle"></i>
-            <% end %>
+            <% Chatroom.approved_chats(current_user).each do |chatroom|%>
+              <% if chatroom.messages.unread_by(current_user).count > 0 || Chatroom.pending_incoming_chats(current_user).count > 0 %>
+                 <i class="fas fa-circle"></i>
+              <% end %>
+           <% end %>
           </div>
           <% end %>
         </li>
