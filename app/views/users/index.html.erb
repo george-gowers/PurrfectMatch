@@ -18,7 +18,7 @@
                 <% if user.avatar.key.present? %>
                   <%= cl_image_tag user.avatar.key, class:"index-image", crop: :fill, gravity: 'auto' %>
                 <% else %>
-                <%= image_tag("no-photo.jpg", class:"index-image") %>
+                  <%= image_tag("no-photo.jpg", class:"index-image") %>
                 <% end %>
               </div>
               <% if user.name.present? %>
@@ -40,7 +40,8 @@
                 <% end %>
               </div>
             </div>
-          </div>
+          </div>\
+        <% end %>
       <% end %>
     </div>
   <% else  %>
@@ -66,7 +67,7 @@
                 <% if user.avatar.key.present? %>
                   <%= cl_image_tag user.avatar.key, class:"index-image", crop: :fill, gravity: 'auto' %>
                 <% else %>
-                <%= image_tag("no-photo.jpg", class:"index-image") %>
+                  <%= image_tag("no-photo.jpg", class:"index-image") %>
                 <% end %>
               </div>
               <% if user.name.present? %>
