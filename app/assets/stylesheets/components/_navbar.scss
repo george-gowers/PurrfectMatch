@@ -60,3 +60,9 @@
   object-fit: cover;
   border-radius: 50%;
 }
+
+@media only screen and (max-width: 800px) {
+ .search_form .form-control {
+    display: none;
+  }
+}
