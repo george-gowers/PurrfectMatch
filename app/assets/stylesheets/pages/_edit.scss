@@ -7,6 +7,7 @@
   margin-top: -48px;
   margin: -48px 32px 32px 24px;
   z-index: 8;
+  position: relative;
   .forms-edit {
     p {
       font-size: 18px;
@@ -23,7 +24,7 @@
   border-radius: 50%;
   border-width: 1px;
   background-color: $pale-red;
-  margin: 0 auto;
+  margin: -90px auto;
   transition: all 0.4s ease-in;
 }
 
