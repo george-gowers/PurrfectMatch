@@ -67,11 +67,11 @@
 .chats-body {
   padding-left: 5em;
   padding-right: 5em;
+  overflow-y: auto;
+  height: 50vh;
 }
 
 .chats-bottom {
-  position: -webkit-sticky;
-  position: sticky;
   bottom: 0px;
   background-color: white;
   margin-top: -5px;
@@ -90,6 +90,8 @@
 
 .txt-icons {
   padding: 0 80px 0 80px;
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .txt-area {
@@ -119,5 +121,17 @@ textarea.form-control {
         display: none;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #chs0 {
+    display: none;
+  }
+  #chs1 {
+    display: none;
+  }
+  #chs2 {
+    display: none;
   }
 }

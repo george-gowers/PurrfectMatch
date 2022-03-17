@@ -5,7 +5,7 @@
 <% end %>
 <div class="chats-view">
   <div class="row d-flex chats-top justify-content-between text-center shadow-sm">
-    <h2 class="col-4 chats-header">Messages</h2>
+    <h2 class="col-4 chats-header" id="chs0">Messages</h2>
     <div class="col-8 d-flex align-items-center justify-content-start">
       <%= link_to user_path(other_user) do %>
         <% if other_user.avatar.key.present? %>
@@ -19,7 +19,7 @@
   </div>
   <div>
     <div class="d-flex row chats-body">
-      <div class="col-4 avatar-list">
+      <div class="col-4 avatar-list" id="chs1">
         <div class="chats chats-show">
           <% unless @approved_chats.empty? %>
             <% @approved_chats.each do |chatroom|%>
@@ -60,7 +60,7 @@
           <% end %>
         </div>
       </div>
-      <div class="container col-8">
+      <div class="container col-md-8">
         <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
           <% @chatroom.messages.each do |message| %>
             <%= render "messages/message", message: message %>
@@ -70,7 +70,7 @@
 
     </div>
     <div class="row txt-icons">
-      <div class="chats-bottom col-4">
+      <div class="chats-bottom col-4" id="chs2">
         <%= link_to root_path do %>
           <i class="fas fa-home"></i>
         <% end %>
@@ -83,7 +83,7 @@
           <i class="fas fa-paw"></i>
         <% end %>
       </div>
-      <div class="col-8">
+      <div class="col-md-8">
         <%= simple_form_for [@chatroom, @message ], remote: true, html: { class: "sbt-msg txt-area"} do |f| %>
           <%= f.input :content, label: false, placeholder: "type a message", wrapper: false, input_html: { class: 'msg-input' } %>
           <%= f.button :submit, "send", class: "msg-submit" %>

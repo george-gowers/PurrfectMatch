@@ -48,7 +48,9 @@ transition: font-size 0.4s ease-out;
 }
 
 .avatar-container {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -90px;
   width: fit-content;
 }
 
@@ -70,10 +72,6 @@ transition: font-size 0.4s ease-out;
   display: none;
 }
 
-.avatar-container {
-  margin-top: -100px;
-}
-
 .full-screen {
   background-size: cover;
   background-position: center;
@@ -89,6 +87,7 @@ transition: font-size 0.4s ease-out;
 .information {
   margin: -48px 32px 32px 24px;
   z-index: 8;
+  position: relative;
   padding-bottom: 28px;
   .forms-edit {
     p {
