@@ -123,3 +123,15 @@ textarea.form-control {
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  #chs0 {
+    display: none;
+  }
+  #chs1 {
+    display: none;
+  }
+  #chs2 {
+    display: none;
+  }
+}
