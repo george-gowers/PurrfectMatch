@@ -63,21 +63,3 @@
   right: -7px;
   font-size: x-large;
 }
-
-@media (max-width: 776px) {
-  .card-product {
-    transition: all 0.5s ease-in;
-    h2 {
-      font-size: 18px;
-    }
-  }
-}
-
-@media (min-width: 776px) {
-  .card-product {
-    transition: all 0.5s ease-out;
-    h2 {
-      font-size: 24px;
-    }
-  }
-}

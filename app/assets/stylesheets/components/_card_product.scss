@@ -1,5 +1,6 @@
 .card-product {
   overflow: hidden;
+  padding-right: 24px;
   height: 120px;
   background: rgb(252, 231, 231);
   box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -8,6 +9,7 @@
   border-radius: 13px;
   margin: 1em;
   position: relative;
+  transition: all 2.5s ease-out;
 }
 
 .card-product img {
@@ -66,4 +68,30 @@
   font-size: 20px;
   position: absolute;
   right: 76px;
+}
+
+@media (max-width: 775px) {
+  .chats {
+    .card-product {
+      transition-property: font-size;
+      transition-duration: 0.6s;
+      transition-delay: 0s;
+      h2 {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (min-width: 776px) {
+  .chats {
+    .card-product {
+      transition-property: font-size;
+      transition-duration: 0.6s;
+      transition-delay: 0s;
+      h2 {
+        font-size: 24px;
+      }
+    }
+  }
 }
