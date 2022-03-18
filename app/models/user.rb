@@ -14,4 +14,6 @@ class User < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  acts_as_reader
 end
