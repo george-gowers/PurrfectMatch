@@ -14,7 +14,7 @@
           <%= image_tag("no-pic-cat.png", class:"rounded-circle",height: 160, width: 160, crop: :fill ) %>
         <% end %>
       <% end %>
-      <h1 class="chats-header mx-3"><%= other_user.name ? other_user.name : "Unknown Cat" %></h1>
+      <h1 class="chats-header mx-3"><%= other_user.name? ? other_user.name : "Unknown Cat" %></h1>
     </div>
   </div>
   <div>
@@ -32,7 +32,7 @@
                       <%= image_tag("no-pic-cat.png", height: 50, width: 50, crop: :fill ) %>
                     <% end %>
                     <div class="card-product-infos mx-3">
-                      <p><%= chatroom.receiver.name ? chatroom.receiver.name : "Unknown Cat" %> </p>
+                      <p><%= chatroom.receiver.name? ? chatroom.receiver.name : "Unknown Cat" %></p>
                     </div>
                     <% if chatroom.messages.unread_by(current_user).count > 0 %>
                       <i class="fas fa-comment-alt message-icon2"></i>
@@ -48,7 +48,7 @@
                       <%= image_tag("no-pic-cat.png", height: 50, width: 50, crop: :fill ) %>
                     <% end %>
                     <div class="card-product-infos mx-3">
-                      <p><%= chatroom.engager.name ? chatroom.engager.name : "Unknown Cat" %></p>
+                      <p><%= chatroom.engager.name? ? chatroom.engager.name : "Unknown Cat"  %></p>
                     </div>
                     <% if chatroom.messages.unread_by(current_user).count > 0 %>
                       <i class="fas fa-comment-alt message-icon2"></i>
