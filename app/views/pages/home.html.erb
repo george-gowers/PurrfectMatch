@@ -1,9 +1,9 @@
 <div class="bg-white">
   <div class="bg">
     <% if user_signed_in? %>
-      <div class="centered-btn"><button><%= link_to "Go to Profile", edit_user_registration_path, class: "btn bg-white centered-btn rounded-pill" %></button></div>
+      <div class="centered-btn"><%= link_to "Go to Profile", edit_user_registration_path, class: "btn bg-white centered-btn rounded-pill" %></div>
     <% else %>
-      <div class="centered-btn"><button><%= link_to "Create Account", new_user_registration_path, class: "btn bg-white centered-btn rounded-pill" %></button></div>
+      <div class="centered-btn"><%= link_to "Create Account", new_user_registration_path, class: "btn bg-white centered-btn rounded-pill" %></div>
     <% end %>
   </div>
   <div class="off-bits">
