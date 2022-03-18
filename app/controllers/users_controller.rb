@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     end
     if params[:breed].present?
       @users = @users.select { |n| n.breed == params[:breed] }
+      @users = @users.reject { |n| n.gender == current_user.gender }
     end
   end
 
