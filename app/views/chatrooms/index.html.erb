@@ -40,7 +40,11 @@
                       <%= image_tag("no-pic-cat.png", height: 160, width: 160, crop: :fill ) %>
                     <% end %>
                     <div class="card-product-infos">
-                      <h2>Have a chat with <%= chatroom.engager.name = "" ? "Unknown Cat": chatroom.engager.name %></h2>
+                      <% if current_user.id == chatroom.engager_id %>
+                        <h2>Have a chat with <%= chatroom.receiver.name? ? chatroom.receiver.name  : "Unknown Cat" %> </h2>
+                      <% else %>
+                        <h2>Have a chat with <%= chatroom.engager.name? ? chatroom.engager.name : "Unknown Cat" %></h2>
+                      <% end %>
                     </div>
                   <% if chatroom.messages.unread_by(current_user).count > 0 %>
                       <i class="fas fa-comment-alt message-icon"></i>
@@ -64,7 +68,7 @@
                   <% end %>
                 <% end %>
                 <div class="card-product-infos">
-                  <h2><%= chatroom.engager.name = "" ? "Unknown Cat": chatroom.engager.name %> wants to chat</h2>
+                  <h2><%= chatroom.engager.name? ? chatroom.engager.name : "Unknown Cat" %> wants to chat</h2>
                 </div>
                 <%= link_to "Accept", accept_chatroom_path(chatroom), class: "btn btn-a" %>
                 <%= link_to "Decline", chatroom_path(chatroom), class: "btn btn-d", data: { method: :delete } %>
@@ -90,7 +94,7 @@
                   <%= link_to chatroom_path(chatroom), method: :delete, data: { confirm: "Are you sure?" } do %>
                     <i class="fas fa-times-circle"></i>
                   <% end %>
-                  <h2>Your chat with <%= chatroom.receiver.name = "" ? "Unknown Cat" : chatroom.receiver.name %> is still <strong>PENDING</strong></h2>
+                  <h2>Your chat with <%= chatroom.receiver.name? ? chatroom.receiver.name : "Unknown Cat" %> is still <strong>PENDING</strong></h2>
                 </div>
               </div>
             <% end %>
